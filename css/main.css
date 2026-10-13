@@ -196,6 +196,32 @@ button {
 	outline-offset: 3px;
 }
 
+body::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: 950;
+	pointer-events: none;
+	opacity: .5;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1  0 0 0 0 .09  0 0 0 0 .07  0 0 0 .14 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+:root[data-theme="dark"] body::after {
+	opacity: .7;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 .95  0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h2,
+h3,
+.contact__title {
+	text-wrap: balance;
+}
+
+p,
+dd {
+	text-wrap: pretty;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
 	animation: none;
@@ -288,7 +314,7 @@ button {
 	background: none;
 	color: var(--ink);
 	cursor: pointer;
-	transition: border-color .25s ease, color .35s ease;
+	transition: border-color .25s ease, color .35s ease, transform .5s cubic-bezier(.2, .8, .2, 1);
 }
 
 .theme:hover {
@@ -325,6 +351,7 @@ button {
 	position: relative;
 	z-index: 1;
 	color: var(--ink);
+	overflow-x: clip;
 }
 
 :root[data-theme="dark"] .hero::after {
@@ -415,6 +442,54 @@ button {
 	--ink: var(--night-ink);
 	--text: var(--night-text);
 	color: var(--ink);
+}
+
+.intro .hero__name {
+	visibility: hidden;
+}
+
+.hero__name .w {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	vertical-align: top;
+	padding-bottom: .08em;
+	margin-bottom: -.08em;
+}
+
+.hero__name .l {
+	display: inline-block;
+	transform: translateY(105%);
+	animation: rise 1s cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+@keyframes rise {
+	to { transform: none; }
+}
+
+.js .hero__lede {
+	animation: lede 1.1s .55s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+@keyframes lede {
+	from { opacity: 0; transform: translateY(14px); }
+}
+
+.js .layers {
+	animation: settle 2.2s cubic-bezier(.2, .8, .2, 1) both;
+	transform-origin: 50% 70%;
+}
+
+@keyframes settle {
+	from { transform: scale(1.06); }
+}
+
+.js .bar {
+	animation: bar-in .9s .3s ease both;
+}
+
+@keyframes bar-in {
+	from { opacity: 0; }
 }
 
 .hero__name {
@@ -589,6 +664,24 @@ button {
 	object-position: top center;
 }
 
+.work__shot > img {
+	transition: transform 1.4s cubic-bezier(.2, .8, .2, 1), opacity .7s ease;
+}
+
+.js .work__shot > img {
+	opacity: 0;
+}
+
+.js .work__shot > img.is-ready {
+	opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.work__shot:hover > img {
+		transform: scale(1.035);
+	}
+}
+
 .work__badge {
 	position: absolute;
 	z-index: 2;
@@ -650,6 +743,30 @@ button {
 	font-size: 15px;
 }
 
+@media (hover: hover) and (pointer: fine) and (min-width: 861px) {
+	.work__links a,
+	.contact__list a,
+	.footer a {
+		text-decoration: none;
+		background: linear-gradient(var(--underline), var(--underline)) 0 100% / 100% 1px no-repeat;
+		padding-bottom: 2px;
+	}
+
+	.work__links a:hover,
+	.contact__list a:hover,
+	.footer a:hover {
+		background-image: linear-gradient(currentColor, currentColor);
+		animation: redraw .7s cubic-bezier(.65, 0, .35, 1);
+	}
+}
+
+@keyframes redraw {
+	0% { background-size: 100% 1px; background-position: 100% 100%; }
+	45% { background-size: 0 1px; background-position: 100% 100%; }
+	46% { background-size: 0 1px; background-position: 0 100%; }
+	100% { background-size: 100% 1px; background-position: 0 100%; }
+}
+
 .work__note {
 	color: var(--muted);
 }
@@ -668,7 +785,7 @@ button {
 	font-size: 15px;
 	line-height: 1;
 	cursor: pointer;
-	transition: background-color .25s ease, color .25s ease;
+	transition: background-color .25s ease, color .25s ease, transform .5s cubic-bezier(.2, .8, .2, 1);
 }
 
 .run::before {
@@ -1446,6 +1563,24 @@ button {
 		transition: none !important;
 	}
 
+	.js .layers,
+	.js .hero__lede,
+	.js .bar,
+	.hero__name .l,
+	.work__links a:hover,
+	.contact__list a:hover,
+	.footer a:hover {
+		animation: none;
+	}
+
+	.hero__name .l {
+		transform: none;
+	}
+
+	.work__shot > img {
+		transition: none;
+	}
+
 	.box__bg,
 	.box__frame {
 		animation: none;
@@ -1453,6 +1588,7 @@ button {
 }
 
 @media print {
+	body::after,
 	.bar,
 	.stage-hud,
 	.box,
