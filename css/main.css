@@ -302,6 +302,56 @@ button {
 	color: #d4d3cb;
 }
 
+.hero.has-tilt {
+	--tiltX: 0;
+	--tiltY: 0;
+}
+
+.hero.has-tilt .layer {
+	transition: transform .45s cubic-bezier(.2, .7, .2, 1);
+}
+
+.hero.has-tilt .layers__base {
+	transform: translate3d(calc(var(--tiltX) * -14px), calc(var(--scrollTop) / 1.6 + var(--tiltY) * -12px), 0) scale(1.09);
+}
+
+.hero.has-tilt .layers__middle {
+	transform: translate3d(calc(var(--tiltX) * -32px), calc(var(--scrollTop) / 2.5 + var(--tiltY) * -26px), 0) scale(1.18);
+}
+
+.hero.has-tilt .layers__front {
+	transform: translate3d(calc(var(--tiltX) * -56px), calc(var(--scrollTop) / 5.7 + var(--tiltY) * -44px), 0) scale(1.32);
+}
+
+.hero.has-tilt .hero__text {
+	transform: translate3d(calc(var(--tiltX) * 12px), calc(var(--scrollTop) / 2.4 + var(--tiltY) * 9px), 0);
+	transition: transform .45s cubic-bezier(.2, .7, .2, 1);
+}
+
+.tilt-ask {
+	position: absolute;
+	z-index: 5;
+	right: var(--gutter);
+	top: 76px;
+	min-height: 44px;
+	padding: 10px 14px;
+	border: 1px solid rgba(236, 235, 230, .3);
+	border-radius: 4px;
+	background: rgba(13, 15, 14, .55);
+	color: var(--ink);
+	font: inherit;
+	font-size: 14px;
+}
+
+.flies {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
 .works {
 	position: relative;
 	z-index: 10;
@@ -811,6 +861,22 @@ button {
 	font-style: normal;
 }
 
+.work__alive {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top center;
+	opacity: 0;
+	transition: opacity .4s ease;
+}
+
+.work__shot.is-alive .work__alive {
+	opacity: 1;
+}
+
 .box {
 	position: fixed;
 	inset: 0;
@@ -990,6 +1056,10 @@ button {
 	.hero__text {
 		transform: none;
 		transition: none;
+	}
+
+	.hero.has-tilt .hero__text {
+		transform: translate3d(calc(var(--tiltX) * 12px), calc(var(--tiltY) * 9px), 0);
 	}
 
 	.bar__name,
