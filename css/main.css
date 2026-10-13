@@ -48,24 +48,24 @@
 	--night-muted: #a9a89f;
 	--night-line: #2b2e2b;
 
-	--paper: 239 235 226;
+	--paper: 221 222 215;
 	--bg: rgb(var(--paper));
-	--surface: #f6f3ec;
-	--surface-2: #fbf9f4;
+	--surface: #e5e6e0;
+	--surface-2: #eaebe5;
 	--ink: #151815;
-	--text: #2f332e;
-	--muted: #585d55;
-	--faint: #676c63;
-	--line: #d5d0c3;
+	--text: #2b2f2a;
+	--muted: #4e534c;
+	--faint: #5b6058;
+	--line: #c4c7bd;
 	--live: #b5650d;
 	--underline: rgba(21, 24, 21, .35);
 	--bar-bg: rgb(var(--paper) / .94);
-	--shot-bg: #e2ded3;
+	--shot-bg: #d2d4cb;
 	--shade: #23261f;
-	--card-shadow: rgba(60, 52, 36, .28);
+	--card-shadow: rgba(36, 44, 38, .26);
 	--fade: rgb(var(--paper) / .94);
 	--backdrop: rgb(var(--paper) / .97);
-	--control-bg: rgba(250, 248, 243, .9);
+	--control-bg: rgba(238, 239, 234, .92);
 	--rule: rgba(21, 24, 21, .16);
 
 	--k-base: 1.5;

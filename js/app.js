@@ -925,7 +925,7 @@
 		if (theme === 'dark') root.setAttribute('data-theme', 'dark');
 		else root.removeAttribute('data-theme');
 		button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-		if (meta) meta.setAttribute('content', theme === 'dark' ? '#0d0f0e' : '#efebe2');
+		if (meta) meta.setAttribute('content', theme === 'dark' ? '#0d0f0e' : '#dedfd7');
 	}
 
 	function choose(theme) {
