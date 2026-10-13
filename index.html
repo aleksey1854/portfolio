@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Арыстан Алханов, веб-дизайнер и разработчик</title>
+	<meta name="description" content="Арыстан Алханов, веб-дизайнер и разработчик из Павлодара. Сайты для отеля, городского рынка и базы отдыха, внутренние системы и два эксперимента с прокруткой. Часть проектов запускается прямо на странице.">
+	<meta name="author" content="Арыстан Алханов">
+	<meta name="theme-color" content="#0d0f0e">
+
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Арыстан Алханов, веб-дизайнер и разработчик">
+	<meta property="og:description" content="Десять проектов из Казахстана. Часть из них запускается прямо на странице.">
+	<meta property="og:image" content="assets/shots/medeu.jpg">
+
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0f0e'/%3E%3Cpath d='M9 24 16 8l7 16M11.6 18h8.8' fill='none' stroke='%23ecebe6' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+	<link rel="preload" href="assets/fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="libs/lenis.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<script src="libs/gsap.min.js" defer></script>
+	<script src="libs/ScrollTrigger.min.js" defer></script>
+	<script src="libs/lenis.min.js" defer></script>
+	<script src="js/i18n.js" defer></script>
+	<script src="js/app.js" defer></script>
+
+</head>
+
+<body>
+
+	<header class="bar" id="topbar">
+		<a class="bar__name" href="#top" data-t="hero.name">Арыстан Алханов</a>
+
+		<nav class="bar__nav" data-t-label="nav.sections" aria-label="Разделы">
+			<a href="#work" data-t="nav.work">Работы</a>
+			<a href="#about" data-t="nav.about">Обо мне</a>
+			<a href="#contact" data-t="nav.contact">Контакты</a>
+		</nav>
+
+		<span class="lang" id="lang" role="group" data-t-label="nav.lang" aria-label="Язык сайта">
+			<button type="button" data-lang="ru" lang="ru">Русский</button>
+			<button type="button" data-lang="kk" lang="kk">Қазақша</button>
+			<button type="button" data-lang="en" lang="en">English</button>
+		</span>
+	</header>
+
+	<main id="top">
+
+		<!-- ============================================== лес из своего parallax -->
+
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="layers">
+				<div class="layer layers__base" style="background-image: url(assets/img/layer-base.jpg);"></div>
+				<div class="layer layers__middle" style="background-image: url(assets/img/layer-middle.png);"></div>
+				<div class="layer layers__front" style="background-image: url(assets/img/layer-front.png);"></div>
+				<div class="layers__veil"></div>
+
+				<div class="hero__text">
+					<h1 class="hero__name" id="hero-title" data-t="hero.name">Арыстан Алханов</h1>
+					<p class="hero__lede" data-t="hero.lede">Веб-дизайнер и разработчик из Павлодара. Ниже десять проектов, которые я сделал. Несколько из них работают прямо на этой странице: откройте и попробуйте.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ========================================================= работы -->
+
+		<section class="works" id="work" aria-labelledby="work-title">
+
+			<div class="shell works__head">
+				<h2 class="h2" id="work-title" data-t="works.title">Работы</h2>
+				<p class="works__hint">
+					<span class="works__hint--deck" data-t="works.hint.deck">Прокручивайте, чтобы листать проекты, или переходите по полосе внизу. «Запустить» открывает проект вживую в окне.</span>
+					<span class="works__hint--flat" data-t="works.hint.flat">Сначала сайты для клиентов, потом внутренние инструменты и два эксперимента со скроллом.</span>
+				</p>
+			</div>
+
+			<div class="works__stage" id="stage">
+
+				<article class="work" data-nav="Medeu Hotel">
+					<div class="work__inner">
+						<div class="work__shot" data-shots="assets/video/medeu.mp4|assets/shots/medeu-2.jpg|assets/shots/medeu-3.jpg" data-live="https://medeuhotel.kz">
+							<img src="assets/shots/medeu.jpg" data-t-alt="w1.alt" alt="Первый экран сайта гостиничного комплекса Medeu" width="1280" height="800">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w1.kind">Сайт гостиничного комплекса, Костанай</p>
+							<h3 class="work__title"><span data-t="w1.name">Medeu Hotel</span> <span class="work__year">2026</span></h3>
+							<p class="work__text" data-t="w1.text">Номера, ресторан, банкетный зал и концерты отеля в Костанае. Сайт на чистых HTML, CSS и JavaScript, на трёх языках, со светлой и тёмной темой. Окно брони считает стоимость, пока гость его заполняет, и отправляет менеджеру в WhatsApp готовую сумму. Метрика и GA4 видят, откуда пришёл каждый посетитель, по UTM-меткам, раз в месяц владелец получает отчёт на почту. Цены и фотографии лежат в двух файлах, их он правит сам.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> HTML, CSS, JavaScript, Yandex Metrica, GA4</p>
+							<p class="work__links">
+								<button class="run" type="button" data-run><span data-t="run.here">Запустить</span></button>
+								<a href="https://medeuhotel.kz" target="_blank" rel="noopener">medeuhotel.kz</a>
+								<a href="https://github.com/aleksey1854/medeu-site" target="_blank" rel="noopener" data-t="link.code">Код на GitHub</a>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<article class="work work--flip" data-nav="Sayahat">
+					<div class="work__inner">
+						<div class="work__shot" data-shots="assets/shots/sayahat-2.jpg" data-live="https://sayahatkostanay.kz">
+							<img src="assets/shots/sayahat.jpg" data-t-alt="w2.alt" alt="Страница каталога сайта рынка «Саяхат»" width="1280" height="800" loading="lazy">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w2.kind">Каталог городского рынка, Костанай</p>
+							<h3 class="work__title"><span data-t="w2.name">Саяхат</span> <span class="work__year">2026</span></h3>
+							<p class="work__text" data-t="w2.text">Витрина магазинов рынка «Саяхат»: у каждого продавца своя страница, у владельцев кабинеты, есть админка. Люди ищут по-казахски и по-русски, поэтому поиск знает казахские окончания и синонимы между двумя языками. Неточные совпадения появляются, только когда нет точных, движок проверяют пятьдесят тестов. Next.js, Postgres через Prisma, микроразметка JSON-LD для поисковиков. Логотип родился в этом же проекте.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> Next.js, TypeScript, Tailwind, Prisma, PostgreSQL</p>
+							<p class="work__links">
+								<button class="run" type="button" data-run><span data-t="run.here">Запустить</span></button>
+								<a href="https://sayahatkostanay.kz" target="_blank" rel="noopener">sayahatkostanay.kz</a>
+								<a href="https://github.com/aleksey1854/sayahat-prototype" target="_blank" rel="noopener" data-t="link.code">Код на GitHub</a>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<article class="work" data-nav="Tikhiy Bereg">
+					<div class="work__inner">
+						<div class="work__shot" data-shots="assets/video/turbaza-booking.mp4|assets/shots/turbaza-booking-2.jpg|assets/shots/turbaza-booking-3.jpg" data-live="https://aleksey1854.github.io/turbaza-booking/">
+							<img src="assets/shots/turbaza-booking.jpg" data-t-alt="w3.alt" alt="Первый экран сайта базы отдыха с бронированием" width="1280" height="800" loading="lazy">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w3.kind">Сайт базы отдыха с бронированием, под Рудным</p>
+							<h3 class="work__title"><span data-t="w3.name">Тихий Берег</span> <span class="work__year">2026</span></h3>
+							<p class="work__text" data-t="w3.text">Гость выбирает даты и сразу видит, какие домики свободны и сколько стоит отдых, звонить никуда не нужно. У каждого числа в календаре своя цена. Сайт считает будни и выходные отдельно, подбирает домики по числу гостей и рассчитывает предоплату. Один HTML-файл, два языка, летнее и зимнее оформление.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> HTML, CSS, JavaScript</p>
+							<p class="work__links">
+								<button class="run" type="button" data-run><span data-t="run.here">Запустить</span></button>
+								<a href="https://github.com/aleksey1854/turbaza-booking" target="_blank" rel="noopener" data-t="link.code">Код на GitHub</a>
+								<span class="work__note" data-t="note.prototype">Прототип для клиента</span>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<article class="work work--flip" data-nav="Tikhiy Bereg, lite">
+					<div class="work__inner">
+						<div class="work__shot" data-shots="assets/shots/turbaza-vitrina-2.jpg|assets/shots/turbaza-vitrina-3.jpg" data-live="https://aleksey1854.github.io/turbaza-vitrina/">
+							<img src="assets/shots/turbaza-vitrina.jpg" data-t-alt="w4.alt" alt="Первый экран сайта базы отдыха с формой заявки" width="1280" height="800" loading="lazy">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w4.kind">Та же база отдыха, простая версия</p>
+							<h3 class="work__title"><span data-t="w4.name">Тихий Берег, лайт</span> <span class="work__year">2026</span></h3>
+							<p class="work__text" data-t="w4.text">Тот же дизайн и те же тексты, только вместо мгновенной брони форма заявки. Календарь показывает загрузку базы, гость оставляет заявку, администратор её подтверждает. Обе версии я сделал, чтобы заказчик видел, что добавляет более дорогая.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> HTML, CSS, JavaScript</p>
+							<p class="work__links">
+								<button class="run" type="button" data-run><span data-t="run.here">Запустить</span></button>
+								<a href="https://github.com/aleksey1854/turbaza-vitrina" target="_blank" rel="noopener" data-t="link.code">Код на GitHub</a>
+								<span class="work__note" data-t="note.prototype">Прототип для клиента</span>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<article class="work" data-nav="EuroOil">
+					<div class="work__inner">
+						<div class="work__shot" data-shots="assets/shots/eurooil-2.jpg|assets/shots/eurooil-3.jpg" data-live="https://aleksey1854.github.io/EuroOil.kz/test.html">
+							<span class="work__badge" data-t="badge.concept">Концепт</span>
+							<img src="assets/shots/eurooil.jpg" data-t-alt="w5.alt" alt="Концепт редизайна сайта сети АЗС EuroOil" width="1280" height="800" loading="lazy">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w5.kind">Сеть АЗС, Павлодарская область. Концепт редизайна</p>
+							<h3 class="work__title"><span data-t="w5.name">EuroOil</span> <span class="work__year">2025</span></h3>
+							<p class="work__text" data-t="w5.text">В 2025 году я сделал для EuroOil семь страниц: главная, адреса, услуги, акции и вакансии, на Bootstrap, со своим переключателем языков поверх виджета перевода. Эта вёрстка устарела, поэтому на снимке концепт редизайна. Первый экран теперь начинается с цен на топливо, ближайшей станции и карты клиента, за этим водитель и приходит.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> HTML, CSS, Bootstrap</p>
+							<p class="work__links">
+								<button class="run" type="button" data-run><span data-t="run.original">Запустить оригинал 2025 года</span></button>
+								<a href="https://github.com/aleksey1854/EuroOil.kz" target="_blank" rel="noopener" data-t="link.code">Код на GitHub</a>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<article class="work work--flip" data-nav="Quality control">
+					<div class="work__inner">
+						<div class="work__shot" data-shots="assets/shots/cc1010-2.jpg">
+							<span class="work__badge" data-t="badge.concept">Концепт</span>
+							<img src="assets/shots/cc1010.jpg" data-t-alt="w6.alt" alt="Концепт интерфейса АРМ контроля качества контакт-центра" width="1280" height="800" loading="lazy">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w6.kind">АРМ отдела контроля качества контакт-центра</p>
+							<h3 class="work__title"><span data-t="w6.name">Контроль качества</span> <span class="work__year">2026</span></h3>
+							<p class="work__text" data-t="w6.text">Система оценки звонков для контакт-центра на 175 операторов в десяти группах. Первую версию я написал на Google Apps Script поверх таблиц. Когда система из них выросла, я переписал её на Next.js и Postgres: четырнадцать таблиц, тридцать семь обработчиков API, баллы и отчёты на SQL, пароли с солью и защита от подбора. Новая версия должна была давать ровно те же цифры, что и старая, и это подтверждают 417 проверок паритета. На снимке концепт интерфейса поверх тех же данных.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> Next.js, Node.js, PostgreSQL, SQL</p>
+							<p class="work__links">
+								<span class="work__note" data-t="note.internal">Внутренняя система, закрыта для внешних</span>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<article class="work" data-nav="Developer Hub">
+					<div class="work__inner">
+						<div class="work__shot" data-shots="assets/shots/devhub-2.jpg">
+							<span class="work__badge" data-t="badge.concept">Концепт</span>
+							<img src="assets/shots/devhub.jpg" data-t-alt="w7.alt" alt="Десктопное приложение Developer Hub с модулями" width="1280" height="800" loading="lazy">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w7.kind">Десктопное приложение для своей рутины</p>
+							<h3 class="work__title"><span data-t="w7.name">Developer Hub</span> <span class="work__year">2026</span></h3>
+							<p class="work__text" data-t="w7.text">Дом для моих Python-скриптов. Кладу папку в modules/, и она появляется в боковом меню. Модулей пока шесть: транскрибация (faster-whisper прямо на компьютере, pyannote различает говорящих, затем модель разбирает расшифровку), сжатие видео, парсер документов, поиск дублей в музыке, импорт в Excel и чат с OneAPI. На снимке следующий шаг: форма, которая сама собирается из манифеста модуля.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> Tauri 2, React 19, TypeScript, Python</p>
+							<p class="work__links">
+								<span class="work__note" data-t="note.personal">Личный инструмент</span>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<article class="work work--flip" data-nav="Switch on &amp; go">
+					<div class="work__inner">
+						<div class="work__shot" data-shots="assets/video/naila.mp4|assets/shots/naila-2.jpg" data-live="https://aleksey1854.github.io/naila-landing/">
+							<img src="assets/shots/naila.jpg" data-t-alt="w8.alt" alt="Страница Switch on and go во включённом состоянии" width="1280" height="800" loading="lazy">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w8.kind">Одностраничник для консультанта в гостеприимстве</p>
+							<h3 class="work__title"><span data-t="w8.name">Switch on &amp; go</span> <span class="work__year">2026</span></h3>
+							<p class="work__text" data-t="w8.text">Заказчица прислала голосовые с одним требованием: сайт должен быть тумблером. Пока он выключен, страница стоит в холодном сером металле. Щелчок, и она теплеет и показывает оффер и контакты. Триста строк в одном файле, ни одной картинки.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> HTML, CSS, JavaScript</p>
+							<p class="work__links">
+								<button class="run" type="button" data-run><span data-t="run.here">Запустить</span></button>
+								<a href="https://github.com/aleksey1854/naila-landing" target="_blank" rel="noopener" data-t="link.code">Код на GitHub</a>
+								<span class="work__note" data-t="note.client">Проект клиента</span>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<article class="work" data-nav="Forest Vine">
+					<div class="work__inner">
+						<div class="work__shot" data-shots="assets/shots/parallax-2.jpg" data-live="https://aleksey1854.github.io/parallax/">
+							<img src="assets/shots/parallax.jpg" data-t-alt="w9.alt" alt="Первый экран эксперимента с параллаксом Forest Vine" width="1280" height="800" loading="lazy">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w9.kind">Эксперимент с параллаксом, 2023</p>
+							<h3 class="work__title"><span data-t="w9.name">Forest Vine</span> <span class="work__year">2023</span></h3>
+							<p class="work__text" data-t="w9.text">Три слоя леса едут с разной скоростью. Положение прокрутки уходит в CSS-переменную, а мягкость движению даёт обычный CSS-transition на трансформе. GSAP только сглаживает прокрутку страницы. Лес в начале этого сайта взят отсюда.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> CSS, JavaScript, GSAP</p>
+							<p class="work__links">
+								<button class="run" type="button" data-run><span data-t="run.here">Запустить</span></button>
+								<a href="https://github.com/aleksey1854/parallax" target="_blank" rel="noopener" data-t="link.code">Код на GitHub</a>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<article class="work work--flip" data-nav="3D Scroll">
+					<div class="work__inner">
+						<div class="work__shot" data-live="https://aleksey1854.github.io/3d_scroll_site/">
+							<img src="assets/shots/scroll3d.jpg" data-t-alt="w10.alt" alt="Кадры галереи на оси Z" width="1280" height="800" loading="lazy">
+						</div>
+						<div class="work__body">
+							<p class="work__kind" data-t="w10.kind">Эксперимент с глубиной, 2023</p>
+							<h3 class="work__title"><span data-t="w10.name">3D Scroll</span> <span class="work__year">2023</span></h3>
+							<p class="work__text" data-t="w10.text">Галерея, которая при прокрутке уходит в экран. Кадры стоят на оси Z и пролетают мимо зрителя. Работает на CSS perspective, preserve-3d и нескольких строках арифметики, без библиотек.</p>
+							<p class="work__stack"><span data-t="work.stack">Сделано на</span> CSS 3D, JavaScript</p>
+							<p class="work__links">
+								<button class="run" type="button" data-run><span data-t="run.here">Запустить</span></button>
+								<a href="https://github.com/aleksey1854/3d_scroll_site" target="_blank" rel="noopener" data-t="link.code">Код на GitHub</a>
+							</p>
+						</div>
+					</div>
+					<span class="work__shade" aria-hidden="true"></span>
+				</article>
+
+				<div class="stage-hud">
+					<div class="stage-hud__left" aria-hidden="true">
+						<div class="stage-count"><span id="count">01</span> <small>/ 10</small></div>
+						<div class="stage-now" id="stageNow">Medeu Hotel</div>
+					</div>
+					<ul class="stage-nav" id="stageNav" data-t-label="works.jump" aria-label="Перейти к проекту"></ul>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ======================================================== обо мне -->
+
+		<section class="about" id="about" aria-labelledby="about-title">
+			<div class="shell about__grid">
+				<h2 class="h2" id="about-title" data-t="about.title">Обо мне</h2>
+
+				<div class="about__text">
+					<p data-t="about.p1">Меня зовут Арыстан, я веб-дизайнер и разработчик из Павлодара. Довожу сайт от первого наброска до рабочей страницы на хостинге и оставляю инструкцию тому, кто будет вести его дальше.</p>
+					<p data-t="about.p2">По образованию я разработчик ПО с квалификацией веб-дизайнера. С сентября 2025 года год вёл маркетинг VESLA, сети доставки суши в пяти городах: реклама в Meta, Google и Яндексе, агрегаторы Яндекс Еда и Chocofood, интеграции с iiko, карточки в 2ГИС и на картах, себестоимость по всему меню.</p>
+					<p data-t="about.p3">Этот год поменял то, с чего я начинаю проект. Первые вопросы: откуда придут люди и что они должны успеть сделать на странице. На сайте отеля из этого выросли UTM-метки, счётчики, ежемесячный отчёт и форма брони, которая сразу показывает цену.</p>
+					<p data-t="about.p4">Большинство проектов идут одним путём. Разбираюсь, что продаёт заказчик и кто покупает, собираю сетку, шрифты и цвета до кода, верстаю сначала под телефон, добавляю то, что двигается, подключаю аналитику и отдаю сайт вместе с README и коротким видео для тех, кто будет его править.</p>
+
+					<h3 class="about__sub" data-t="tools.title">Инструменты</h3>
+					<dl class="tools">
+						<div><dt data-t="tools.design">Дизайн и вёрстка</dt><dd data-t="tools.design.list">HTML, CSS, SVG, адаптивная вёрстка, типографика, анимация</dd></div>
+						<div><dt data-t="tools.front">Фронтенд</dt><dd>JavaScript, TypeScript, React, Next.js, Tailwind, GSAP, Lenis, Bootstrap</dd></div>
+						<div><dt data-t="tools.back">Данные и бэкенд</dt><dd>Node.js, PostgreSQL, Prisma, SQLite, REST APIs, Python, Google Apps Script</dd></div>
+						<div><dt data-t="tools.ship">Аналитика и публикация</dt><dd>Yandex Metrica, GA4, UTM, Search Console, Yandex Webmaster, Git, Vercel, GitHub Pages</dd></div>
+					</dl>
+				</div>
+			</div>
+		</section>
+
+		<!-- ======================================================== контакты -->
+
+		<section class="contact" id="contact" aria-labelledby="contact-title">
+			<div class="shell contact__inner">
+				<h2 class="contact__title" id="contact-title" data-t="contact.title">Напишите мне</h2>
+				<p class="contact__text" data-t="contact.text">Обычно отвечаю в течение дня. Если ваш проект похож на какой-то из тех, что выше, назовите его, так мы быстрее договоримся.</p>
+
+				<ul class="contact__list">
+					<li><span>WhatsApp</span><a href="https://wa.me/77072493456" target="_blank" rel="noopener">+7 707 249 34 56</a></li>
+					<li><span>Telegram</span><a href="https://t.me/aleksey1854" target="_blank" rel="noopener">@aleksey1854</a></li>
+					<li><span data-t="contact.email">Почта</span><a href="mailto:alhanlvarystan@gmail.com">alhanlvarystan@gmail.com</a></li>
+					<li><span>GitHub</span><a href="https://github.com/aleksey1854" target="_blank" rel="noopener">aleksey1854</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ======================= разворот: экраны, ролик или живой проект -->
+
+	<div class="box" id="box" hidden>
+		<div class="box__bg"></div>
+
+		<figure class="box__frame">
+			<div class="box__live" id="boxLiveBar" hidden>
+				<span class="box__dot"></span>
+				<span data-t="run.live">Работает вживую</span>
+				<a id="boxNewTab" href="#" target="_blank" rel="noopener" data-t="run.newtab">Открыть в новой вкладке</a>
+			</div>
+			<img id="boxImg" src="" alt="">
+			<video id="boxVideo" loop muted playsinline preload="none" hidden></video>
+			<iframe id="boxFrame" title="" hidden></iframe>
+			<figcaption class="box__meta">
+				<b id="boxTitle"></b>
+				<span id="boxCount"></span>
+			</figcaption>
+		</figure>
+
+		<button class="box__btn box__btn--prev" type="button" id="boxPrev" data-t-label="box.prev" aria-label="Предыдущий экран">
+			<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m14.5 5-7 7 7 7" /></svg>
+		</button>
+		<button class="box__btn box__btn--next" type="button" id="boxNext" data-t-label="box.next" aria-label="Следующий экран">
+			<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m9.5 5 7 7-7 7" /></svg>
+		</button>
+		<button class="box__btn box__btn--close" type="button" id="boxClose" data-t-label="box.close" aria-label="Закрыть">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6 6 18" /></svg>
+		</button>
+	</div>
+
+	<footer class="footer">
+		<div class="shell footer__row">
+			<span>© <span id="year">2026</span> <span data-t="hero.name">Арыстан Алханов</span>, <span data-t="footer.city">Павлодар</span></span>
+			<span data-t="footer.note">Лес вверху страницы взят из моего эксперимента с параллаксом 2023 года.</span>
+			<a href="#top" data-t="footer.top">Наверх</a>
+		</div>
+	</footer>
+
+</body>
+
+</html>

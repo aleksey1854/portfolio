@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<title>Direction C — Three languages</title>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+
+	body {
+		width: 1440px;
+		background: #f6f5f1;
+		color: #141414;
+		font-family: 'Golos Text', sans-serif;
+		font-size: 15px;
+		line-height: 1.45;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.bar {
+		display: flex;
+		justify-content: space-between;
+		padding: 22px 40px;
+		font-size: 15px;
+	}
+
+	.bar nav span { margin-left: 24px; }
+
+	/* Одна мысль на трёх языках — казахский первым. Это и есть дизайн:
+	   сайт показывает, что умеет то, что продаёт. */
+	.poster {
+		padding: 70px 40px 56px;
+		border-bottom: 2px solid #141414;
+	}
+
+	.poster p {
+		font-family: 'PT Serif', serif;
+		font-size: 104px;
+		line-height: .98;
+		letter-spacing: -.02em;
+	}
+
+	.poster .kk { color: #141414; }
+	.poster .ru { color: #141414; font-style: italic; }
+	.poster .en { color: #8b8a84; }
+
+	.poster small {
+		display: inline-block;
+		width: 64px;
+		font-family: 'Golos Text', sans-serif;
+		font-size: 14px;
+		letter-spacing: 0;
+		vertical-align: top;
+		margin-top: 22px;
+		color: #8b8a84;
+	}
+
+	.meta {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 24px;
+		padding: 20px 40px 26px;
+		font-size: 15px;
+	}
+
+	.meta .soft { color: #6f6e69; }
+
+	.strip {
+		display: grid;
+		grid-template-columns: 1.3fr 1fr 1fr;
+		gap: 16px;
+		padding: 0 40px 40px;
+	}
+
+	.strip figure img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+	.strip figcaption { margin-top: 10px; font-size: 15px; }
+	.strip figcaption .soft { color: #6f6e69; }
+</style>
+</head>
+<body>
+
+<header class="bar">
+	<span>Арыстан Алханов</span>
+	<nav><span>Жұмыстар</span><span>Байланыс</span><span><b>Қаз</b></span><span>Рус</span><span>Eng</span></nav>
+</header>
+
+<section class="poster">
+	<p class="kk"><small>Қаз</small>Сайттарды үш тілде жасаймын.</p>
+	<p class="ru"><small>Рус</small>Делаю сайты на трёх языках.</p>
+	<p class="en"><small>Eng</small>I build sites in three languages.</p>
+</section>
+
+<section class="meta">
+	<p>Веб-дизайнер және әзірлеуші<br><span class="soft">Павлодар</span></p>
+	<p>Қонақ үйлер, базарлар, демалыс базалары<br><span class="soft">Қостанай, Рудный, Павлодар</span></p>
+	<p>Іздеу қазақ жалғауларын түсінеді<br><span class="soft">«етік» → «етіктер», «етікті»</span></p>
+	<p>Жаңа жобалар<br><span class="soft">қарашадан бастап</span></p>
+</section>
+
+<section class="strip">
+	<figure>
+		<img src="../assets/shots/sayahat.jpg" alt="">
+		<figcaption>Саяхат <span class="soft">Базар каталогы, екі тілде іздеу</span></figcaption>
+	</figure>
+	<figure>
+		<img src="../assets/shots/medeu.jpg" alt="">
+		<figcaption>Medeu Hotel <span class="soft">Үш тіл, брондау</span></figcaption>
+	</figure>
+	<figure>
+		<img src="../assets/shots/turbaza-booking.jpg" alt="">
+		<figcaption>Тихий Берег <span class="soft">Бағасы бар күнтізбе</span></figcaption>
+	</figure>
+</section>
+
+</body>
+</html>

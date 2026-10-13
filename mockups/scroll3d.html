@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>3D Scroll — кадр галереи</title>
+	<style>
+		*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+		@font-face {
+			font-family: raleway_g;
+			src: url(../assets/fonts/raleway-v22-cyrillic-100.woff2) format("woff2");
+			font-weight: 100;
+		}
+
+		@font-face {
+			font-family: raleway_g;
+			src: url(../assets/fonts/raleway-v22-cyrillic-300.woff2) format("woff2");
+			font-weight: 300;
+		}
+
+		body {
+			width: 1440px;
+			height: 900px;
+			overflow: hidden;
+			background: #000;
+			color: #fff;
+			font-family: raleway_g, "Segoe UI", sans-serif;
+			font-weight: 300;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.stage { position: relative; width: 1440px; height: 900px; overflow: hidden; }
+
+		.frame {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.media {
+			width: 560px;
+			height: 764px;
+			background-position: center;
+			background-size: cover;
+			box-shadow: 0 50px 140px -50px #000;
+		}
+
+		/* коридор: кадры уходят вправо и вглубь */
+
+		.f-mid { transform: perspective(1500px) translate3d(784px, 0, -760px); opacity: .74; z-index: 2; }
+		.f-near { transform: perspective(1500px) translate3d(-122px, 0, -160px); z-index: 3; }
+
+		/* атмосфера */
+
+		.fog {
+			position: absolute;
+			inset: 0;
+			z-index: 6;
+			pointer-events: none;
+			background:
+				radial-gradient(76% 64% at 54% 48%, transparent 16%, rgba(0, 0, 0, .55) 62%, rgba(0, 0, 0, .92) 100%),
+				linear-gradient(90deg, #000 6%, rgba(0, 0, 0, .74) 22%, transparent 40%),
+				linear-gradient(to bottom, #000 0%, transparent 11%, transparent 88%, #000 100%);
+		}
+
+		/* интерфейс поверх сцены */
+
+		.hud { position: absolute; z-index: 8; }
+
+		.hud--mark {
+			top: 48px;
+			left: 56px;
+			font-size: 11.5px;
+			letter-spacing: .42em;
+			text-transform: uppercase;
+			color: rgba(255, 255, 255, .72);
+		}
+
+		.hud--mark small {
+			display: block;
+			margin-top: 9px;
+			font-size: 10px;
+			letter-spacing: .24em;
+			color: rgba(255, 255, 255, .3);
+		}
+
+		.hud--title {
+			left: 56px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 340px;
+		}
+
+		.hud--title h2 {
+			font-weight: 100;
+			text-transform: uppercase;
+			font-size: 52px;
+			line-height: 1.02;
+			letter-spacing: .07em;
+			color: #fff;
+		}
+
+		.hud--title p {
+			margin-top: 22px;
+			font-size: 13px;
+			line-height: 1.8;
+			letter-spacing: .05em;
+			color: rgba(255, 255, 255, .5);
+		}
+
+		.scale {
+			margin-top: 30px;
+			display: flex;
+			align-items: flex-end;
+			gap: 7px;
+			height: 30px;
+		}
+
+		.scale i { display: block; width: 3px; height: 8px; background: rgba(255, 255, 255, .22); }
+		.scale i.on { height: 24px; background: #fff; }
+		.scale u { margin-left: 14px; text-decoration: none; font-size: 10.5px; letter-spacing: .26em; color: rgba(255, 255, 255, .4); line-height: 1; }
+
+		.hud--z {
+			right: 56px;
+			bottom: 52px;
+			text-align: right;
+			font-size: 10.5px;
+			letter-spacing: .32em;
+			text-transform: uppercase;
+			color: rgba(255, 255, 255, .34);
+		}
+
+		.hud--z b {
+			display: block;
+			font-size: 44px;
+			font-weight: 100;
+			letter-spacing: .04em;
+			color: #fff;
+			margin-bottom: 4px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="stage">
+
+		<div class="frame f-mid">
+			<div class="media" style="background-image: url(assets/gal-3.jpg)"></div>
+		</div>
+
+		<div class="frame f-near">
+			<div class="media" style="background-image: url(assets/gal-1.jpg)"></div>
+		</div>
+
+		<div class="fog"></div>
+
+		<div class="hud hud--mark">
+			3D&nbsp;Scroll
+			<small>Arystan Alhanov · 2023</small>
+		</div>
+
+		<div class="hud hud--title">
+			<h2>Beautiful<br>World</h2>
+			<p>Прокрутка идёт не вниз, а вглубь: кадры стоят на оси&nbsp;Z и пролетают сквозь зрителя.</p>
+			<div class="scale">
+				<i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+				<u>02 / 12</u>
+			</div>
+		</div>
+
+		<div class="hud hud--z">
+			<b>−800</b>
+			depth · px
+		</div>
+
+	</div>
+</body>
+
+</html>

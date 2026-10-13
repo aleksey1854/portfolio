@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Direction A — Index</title>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+
+	body {
+		width: 1440px;
+		background: #ebebea;
+		color: #121212;
+		font-family: 'Golos Text', sans-serif;
+		font-size: 15px;
+		line-height: 1.45;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	a { color: inherit; text-decoration: none; }
+
+	.top {
+		display: grid;
+		grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
+		gap: 24px;
+		padding: 22px 32px;
+	}
+
+	.top p { color: #121212; }
+	.top .soft { color: #6b6b68; }
+	.top u { text-decoration: none; border-bottom: 1px solid #121212; }
+
+	.lang span { margin-right: 14px; color: #6b6b68; }
+	.lang span.on { color: #121212; }
+
+	.lede {
+		padding: 120px 32px 110px;
+		font-size: 62px;
+		line-height: 1.04;
+		font-weight: 500;
+		letter-spacing: -.028em;
+		max-width: 1260px;
+	}
+
+	.lede .soft { color: #8a8a86; }
+
+	.list { border-top: 1px solid #121212; margin: 0 32px; position: relative; }
+
+	.row {
+		display: grid;
+		grid-template-columns: 4fr 5fr 3fr 1fr 2fr;
+		gap: 24px;
+		align-items: baseline;
+		padding: 15px 0 14px;
+		border-bottom: 1px solid #c9c9c6;
+		font-size: 15px;
+	}
+
+	.row .name { font-size: 26px; font-weight: 500; letter-spacing: -.015em; }
+	.row .soft { color: #6b6b68; }
+	.row .go { text-align: right; }
+	.row .go u { text-decoration: none; border-bottom: 1px solid currentColor; }
+
+	.row.hot { color: #121212; }
+	.row.dim .name { color: #9b9b97; }
+
+	.preview {
+		position: absolute;
+		top: 54px;
+		left: 470px;
+		width: 560px;
+		box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .45);
+		pointer-events: none;
+	}
+
+	.preview img { display: block; width: 100%; }
+
+	.caption {
+		position: absolute;
+		top: 410px;
+		left: 470px;
+		width: 560px;
+		font-size: 14px;
+		color: #121212;
+		background: #ebebea;
+		padding-top: 10px;
+	}
+</style>
+</head>
+<body>
+
+<header class="top">
+	<p>Arystan Alhanov</p>
+	<p>Web designer and developer<br><span class="soft">Pavlodar, Kazakhstan</span></p>
+	<p>Taking new projects<br><span class="soft">from November 2026</span></p>
+	<p class="lang"><span class="on">English</span><span>Қазақша</span><span>Русский</span></p>
+	<p><u>WhatsApp</u><br><u>Telegram</u><br><u>Email</u></p>
+</header>
+
+<h1 class="lede">
+	I build websites for hotels, city markets and lakeside resorts across Kazakhstan, and the systems behind them.
+	<span class="soft">Ten of them are below; six you can try right here.</span>
+</h1>
+
+<section class="list">
+	<div class="row hot">
+		<span class="name">Medeu Hotel</span>
+		<span>Hotel site with a booking window that prices the stay as you type</span>
+		<span class="soft">Kostanay</span>
+		<span class="soft">2026</span>
+		<span class="go"><u>medeuhotel.kz</u></span>
+	</div>
+	<div class="row dim">
+		<span class="name">Sayahat</span>
+		<span class="soft">Catalogue of a city market, search in Kazakh and Russian</span>
+		<span class="soft">Kostanay</span>
+		<span class="soft">2026</span>
+		<span class="go soft">sayahatkostanay.kz</span>
+	</div>
+	<div class="row dim">
+		<span class="name">Tikhiy Bereg</span>
+		<span class="soft">Cabin booking with a priced calendar</span>
+		<span class="soft">Near Rudny</span>
+		<span class="soft">2026</span>
+		<span class="go soft">Try it</span>
+	</div>
+	<div class="row dim">
+		<span class="name">Quality control</span>
+		<span class="soft">Call scoring for a 175-seat contact centre</span>
+		<span class="soft">Internal</span>
+		<span class="soft">2026</span>
+		<span class="go soft">Case</span>
+	</div>
+	<div class="row dim">
+		<span class="name">Switch on &amp; go</span>
+		<span class="soft">A one-page site that is one big switch</span>
+		<span class="soft">Client</span>
+		<span class="soft">2026</span>
+		<span class="go soft">Try it</span>
+	</div>
+	<div class="row dim">
+		<span class="name">Developer Hub</span>
+		<span class="soft">Desktop tool that runs my Python scripts</span>
+		<span class="soft">Personal</span>
+		<span class="soft">2026</span>
+		<span class="go soft">Case</span>
+	</div>
+
+	<figure class="preview"><img src="../assets/shots/medeu.jpg" alt=""></figure>
+	<p class="caption">The booking window adds 10,000 ₸ a night for a second guest and sends the total to the manager’s WhatsApp.</p>
+</section>
+
+</body>
+</html>

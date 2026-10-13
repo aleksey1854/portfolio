@@ -1,0 +1,7 @@
+# передача дел для нового чата: там рабочие заметки, на публику не нужно
+CONTEXT.md
+
+# служебные файлы Windows и macOS
+Thumbs.db
+desktop.ini
+.DS_Store
