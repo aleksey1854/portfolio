@@ -936,8 +936,8 @@
 	function warm() {
 		if (warmed) return;
 		warmed = true;
-		var set = current() === 'dark' ? ['day-base', 'day-middle', 'day-front'] : ['layer-base', 'layer-middle', 'layer-front', 'ground', 'dungeon'];
-		set.forEach(function (name) { new Image().src = 'assets/img/' + name + '.webp'; });
+		var set = current() === 'dark' ? ['day-base.svg', 'day-middle.svg', 'day-front.svg'] : ['layer-base.webp', 'layer-middle.webp', 'layer-front.webp', 'ground.webp', 'dungeon.webp'];
+		set.forEach(function (name) { new Image().src = 'assets/img/' + name; });
 	}
 
 	button.hidden = false;

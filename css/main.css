@@ -343,7 +343,7 @@ button {
 	height: 100svh;
 	min-height: 560px;
 	overflow: hidden;
-	background: #e9ebe2 url(data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBgCdASo4ACAAPtVaqEyoJaQiM/maqQAaiWkAznQZKEffeC7Ct6hCKAVVWmJq0g3UvGoPfJpzfAAA/up5wg6luq3TlkMaNjx+qRjUcC/ys77UMVbAGGxCPDa9UQzBoTgB2jr8FQDu4Is+j8oeN7Ck8WHS5i37eFiLeJBq8l8kJcOJhAOklI8AAAA=) center / cover no-repeat;
+	background: linear-gradient(to bottom, #fbe9d0 0%, #f8d3b4 38%, #df9a8e 58%, #6a4a5e 70%, #3d3243 88%);
 }
 
 :root[data-theme="dark"] .layers {
@@ -361,18 +361,18 @@ button {
 }
 
 .layers__base {
-	background-image: url(../assets/img/day-base.webp);
+	background-image: url(../assets/img/day-base.svg);
 	transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
 	z-index: 0;
 }
 
 .layers__middle {
-	background-image: url(../assets/img/day-middle.webp);
+	background-image: url(../assets/img/day-middle.svg);
 	transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
 }
 
 .layers__front {
-	background-image: url(../assets/img/day-front.webp);
+	background-image: url(../assets/img/day-front.svg);
 	transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
 }
 
@@ -392,7 +392,7 @@ button {
 	position: absolute;
 	inset: 0;
 	z-index: 3;
-	background: linear-gradient(to bottom, rgba(239, 235, 226, .55) 0%, transparent 16%, transparent 34%, rgba(239, 235, 226, .74) 62%, var(--bg) 100%);
+	background: linear-gradient(to bottom, rgba(251, 233, 208, .35) 0%, transparent 12%, transparent 93%, var(--bg) 100%);
 }
 
 :root[data-theme="dark"] .layers__veil {
@@ -409,6 +409,12 @@ button {
 	transform: translate3d(0, calc(var(--scrollTop) / 2.4), 0);
 	transition: var(--transition);
 	will-change: transform;
+}
+
+.hero__text {
+	--ink: var(--night-ink);
+	--text: var(--night-text);
+	color: var(--ink);
 }
 
 .hero__name {
@@ -901,7 +907,7 @@ button {
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	background-image: url(../assets/img/day-base.webp);
+	background-image: url(../assets/img/day-base.svg);
 	background-size: cover;
 	background-position: center;
 	padding: calc(var(--index) * 6) 0;
