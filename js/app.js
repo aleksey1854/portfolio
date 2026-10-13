@@ -635,7 +635,10 @@
 
 	if (!window.matchMedia) return;
 	if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-	if (!matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
+	var touch = matchMedia('(hover: none) and (pointer: coarse)').matches;
+	var mouse = matchMedia('(hover: hover) and (pointer: fine)').matches;
+	if (!touch && !mouse) return;
 
 	var hero = document.querySelector('.hero');
 	var layers = document.querySelector('.layers');
@@ -650,7 +653,7 @@
 		return dict[key] || fallback;
 	}
 
-	if ('DeviceOrientationEvent' in window) {
+	if (touch && 'DeviceOrientationEvent' in window) {
 		var base = null;
 		var pending = null;
 		var sensorless = false;
@@ -693,6 +696,31 @@
 				});
 			}, 1200);
 		}
+	}
+
+	if (mouse) {
+		var aim = { x: 0, y: 0 };
+		var queued = false;
+
+		var follow = function () {
+			queued = false;
+			hero.style.setProperty('--mx', aim.x.toFixed(3));
+			hero.style.setProperty('--my', aim.y.toFixed(3));
+		};
+
+		layers.addEventListener('mousemove', function (e) {
+			var r = layers.getBoundingClientRect();
+			aim.x = clamp((e.clientX - r.left) / r.width * 2 - 1, -1, 1);
+			aim.y = clamp((e.clientY - r.top) / r.height * 2 - 1, -1, 1);
+			hero.classList.add('has-mouse');
+			if (!queued) { queued = true; requestAnimationFrame(follow); }
+		});
+
+		layers.addEventListener('mouseleave', function () {
+			aim.x = 0;
+			aim.y = 0;
+			if (!queued) { queued = true; requestAnimationFrame(follow); }
+		});
 	}
 
 	var canvas = document.createElement('canvas');
@@ -742,7 +770,7 @@
 
 	function spawn() {
 		flies = [];
-		for (var i = 0; i < 34; i++) {
+		for (var i = 0, n = touch ? 34 : 54; i < n; i++) {
 			flies.push({
 				x: Math.random() * W,
 				y: H * .25 + Math.random() * H * .6,
@@ -810,17 +838,25 @@
 		finger = { x: touchPoint.clientX - r.left, y: touchPoint.clientY - r.top };
 	}
 
-	layers.addEventListener('touchstart', function (e) {
-		clearTimeout(release);
-		point(e.touches[0]);
-	}, { passive: true });
+	if (touch) {
+		layers.addEventListener('touchstart', function (e) {
+			clearTimeout(release);
+			point(e.touches[0]);
+		}, { passive: true });
 
-	layers.addEventListener('touchmove', function (e) { point(e.touches[0]); }, { passive: true });
+		layers.addEventListener('touchmove', function (e) { point(e.touches[0]); }, { passive: true });
 
-	layers.addEventListener('touchend', function () {
-		clearTimeout(release);
-		release = setTimeout(function () { finger = null; }, 1800);
-	}, { passive: true });
+		layers.addEventListener('touchend', function () {
+			clearTimeout(release);
+			release = setTimeout(function () { finger = null; }, 1800);
+		}, { passive: true });
+	} else {
+		layers.addEventListener('click', function (e) {
+			clearTimeout(release);
+			point(e);
+			release = setTimeout(function () { finger = null; }, 2200);
+		});
+	}
 
 	new IntersectionObserver(function (entries) {
 		visible = entries[0].isIntersecting;
@@ -833,7 +869,7 @@
 	start();
 
 	var saveData = navigator.connection && navigator.connection.saveData;
-	if (saveData) return;
+	if (!touch || saveData) return;
 
 	var watch = new IntersectionObserver(function (entries) {
 		entries.forEach(function (entry) {
@@ -936,4 +972,129 @@
 			});
 		}).catch(function () {});
 	});
+})();
+
+(function () {
+	'use strict';
+
+	if (!window.matchMedia) return;
+	if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+	var root = document.documentElement;
+	var night = function () { return root.getAttribute('data-theme') === 'dark'; };
+
+	function load(src) {
+		return new Promise(function (resolve, reject) {
+			var script = document.createElement('script');
+			script.src = src;
+			script.onload = resolve;
+			script.onerror = reject;
+			document.head.appendChild(script);
+		});
+	}
+
+	var contact = document.getElementById('contact');
+	if (contact) {
+		var lit = { x: 0, y: 0, r: 0 };
+		var aim = { x: 0, y: 0, r: 0 };
+		var burning = false;
+
+		var burn = function (t) {
+			lit.x += (aim.x - lit.x) * .12;
+			lit.y += (aim.y - lit.y) * .12;
+			lit.r += (aim.r - lit.r) * .08;
+			var flicker = 1 + Math.sin(t / 90) * .015 + Math.sin(t / 37) * .01;
+			contact.style.setProperty('--lx', lit.x.toFixed(1) + 'px');
+			contact.style.setProperty('--ly', lit.y.toFixed(1) + 'px');
+			contact.style.setProperty('--lr', (lit.r * flicker).toFixed(1) + 'px');
+			if (aim.r > 0 || lit.r > .5) requestAnimationFrame(burn);
+			else burning = false;
+		};
+
+		contact.addEventListener('mousemove', function (e) {
+			if (!night()) return;
+			var r = contact.getBoundingClientRect();
+			aim.x = e.clientX - r.left;
+			aim.y = e.clientY - r.top;
+			aim.r = Math.max(180, Math.min(320, r.width * .2));
+			if (!lit.r) { lit.x = aim.x; lit.y = aim.y; }
+			contact.classList.add('is-lit');
+			if (!burning) { burning = true; requestAnimationFrame(burn); }
+		});
+
+		contact.addEventListener('mouseleave', function () { aim.r = 0; });
+	}
+
+	var euro = document.querySelector('[data-nav="EuroOil"] .work__shot');
+
+	if (euro) {
+		load('libs/img-comparison-slider.js').then(function () {
+			var picture = euro.querySelector('img');
+			var slider = document.createElement('img-comparison-slider');
+			slider.className = 'work__compare';
+			slider.setAttribute('value', '62');
+
+			var before = picture.cloneNode(true);
+			before.setAttribute('slot', 'first');
+			before.removeAttribute('loading');
+
+			var after = document.createElement('img');
+			after.setAttribute('slot', 'second');
+			after.setAttribute('data-t-alt', 'w5.altOriginal');
+			after.src = 'assets/shots/eurooil-2.webp';
+			after.width = 1280;
+			after.height = 800;
+
+			var tag = document.createElement('span');
+			tag.className = 'work__badge work__badge--right';
+			tag.setAttribute('data-t', 'compare.original');
+
+			var api = window.I18N;
+			var dict = api ? api.dict[root.lang] || api.dict.ru : {};
+			after.alt = dict['w5.altOriginal'] || 'Главная страница EuroOil 2025 года';
+			tag.textContent = dict['compare.original'] || 'Оригинал 2025';
+
+			slider.appendChild(before);
+			slider.appendChild(after);
+			picture.replaceWith(slider);
+			euro.appendChild(tag);
+			slider.addEventListener('click', function (e) { e.stopPropagation(); });
+		}).catch(function () {});
+	}
+
+	function hoverVideo(shot) {
+		var src = (shot.getAttribute('data-shots') || '').split('|').filter(function (s) { return /\.mp4$/.test(s); })[0];
+		if (!src) return;
+		var vid = null;
+
+		shot.addEventListener('mouseenter', function () {
+			if (!vid) {
+				vid = document.createElement('video');
+				vid.className = 'work__alive';
+				vid.muted = true;
+				vid.loop = true;
+				vid.playsInline = true;
+				vid.setAttribute('muted', '');
+				vid.setAttribute('aria-hidden', 'true');
+				vid.src = src;
+				vid.addEventListener('playing', function () { shot.classList.add('is-alive'); });
+				shot.appendChild(vid);
+			}
+			var playing = vid.play();
+			if (playing && playing.catch) playing.catch(function () {});
+		});
+
+		shot.addEventListener('mouseleave', function () {
+			if (!vid) return;
+			shot.classList.remove('is-alive');
+			vid.pause();
+		});
+	}
+
+	load('libs/vanilla-tilt.min.js').then(function () {
+		var shots = Array.prototype.filter.call(document.querySelectorAll('.work__shot'), function (shot) { return shot !== euro; });
+		window.VanillaTilt.init(shots, { max: 5, speed: 900, perspective: 1400, scale: 1.015, glare: true, 'max-glare': .16, gyroscope: false });
+		shots.forEach(hoverVideo);
+	}).catch(function () {});
 })();

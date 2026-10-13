@@ -30,6 +30,8 @@
 		'note.client': 'Client project',
 		'tilt.ask': 'Enable tilt',
 		'theme.dark': 'Dark theme',
+		'compare.original': '2025 original',
+		'w5.altOriginal': 'EuroOil home page, 2025',
 		'badge.concept': 'Concept',
 
 		'shot.screens': 'screens',
@@ -138,6 +140,8 @@
 		'note.client': 'Клиент жобасы',
 		'tilt.ask': 'Еңкейтуді қосу',
 		'theme.dark': 'Түнгі режим',
+		'compare.original': '2025 жылғы түпнұсқа',
+		'w5.altOriginal': 'EuroOil басты беті, 2025 жыл',
 		'badge.concept': 'Тұжырым',
 
 		'shot.screens': 'экран',
@@ -246,6 +250,8 @@
 		'note.client': 'Проект клиента',
 		'tilt.ask': 'Включить наклон',
 		'theme.dark': 'Тёмная тема',
+		'compare.original': 'Оригинал 2025',
+		'w5.altOriginal': 'Главная страница EuroOil 2025 года',
 		'badge.concept': 'Концепт',
 
 		'shot.screens': 'экрана',
