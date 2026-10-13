@@ -29,6 +29,7 @@
 		'note.personal': 'Personal tool',
 		'note.client': 'Client project',
 		'tilt.ask': 'Enable tilt',
+		'theme.dark': 'Dark theme',
 		'badge.concept': 'Concept',
 
 		'shot.screens': 'screens',
@@ -136,6 +137,7 @@
 		'note.personal': 'Жеке құрал',
 		'note.client': 'Клиент жобасы',
 		'tilt.ask': 'Еңкейтуді қосу',
+		'theme.dark': 'Түнгі режим',
 		'badge.concept': 'Тұжырым',
 
 		'shot.screens': 'экран',
@@ -243,6 +245,7 @@
 		'note.personal': 'Личный инструмент',
 		'note.client': 'Проект клиента',
 		'tilt.ask': 'Включить наклон',
+		'theme.dark': 'Тёмная тема',
 		'badge.concept': 'Концепт',
 
 		'shot.screens': 'экрана',
