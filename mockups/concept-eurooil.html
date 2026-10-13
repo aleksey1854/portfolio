@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=block" rel="stylesheet">
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	html, body { width: 1440px; height: 900px; overflow: hidden; background: #fff; color: #151515; font-family: "Golos Text", sans-serif; }
+	.top { height: 76px; display: flex; align-items: center; padding: 0 56px; border-bottom: 1px solid #ecebe6; }
+	.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 22px; letter-spacing: -.02em; }
+	.brand img { width: 34px; height: auto; }
+	.nav { display: flex; gap: 30px; margin-left: 64px; font-size: 15px; color: #3d3d3a; }
+	.nav b { font-weight: 500; color: #151515; box-shadow: inset 0 -2px 0 #ffd200; padding-bottom: 4px; }
+	.right { margin-left: auto; display: flex; align-items: center; gap: 22px; font-size: 15px; }
+	.btn { display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border-radius: 6px; background: #ffd200; font-weight: 600; font-size: 15px; color: #151515; }
+	.btn.dark { background: #151515; color: #fff; }
+	.hero { position: relative; height: 560px; display: grid; grid-template-columns: 640px 1fr; }
+	.copy { padding: 76px 0 0 56px; }
+	.kicker { font-size: 14px; color: #6d6c66; }
+	h1 { margin-top: 18px; max-width: 560px; font-size: 56px; line-height: 1.02; letter-spacing: -.035em; font-weight: 700; }
+	.lead { margin-top: 22px; max-width: 470px; font-size: 18px; line-height: 1.5; color: #45443f; }
+	.cta { margin-top: 34px; display: flex; align-items: center; gap: 24px; font-size: 15px; }
+	.cta a { color: #151515; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #c9c7bf; }
+	.photo { position: relative; overflow: hidden; }
+	.photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; }
+	.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0, 0, 0, .25), transparent 40%); }
+	.pylon { position: absolute; z-index: 2; left: 70px; top: 46px; width: 276px; background: #121212; border-radius: 8px 8px 0 0; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .55); }
+	.pylon__head { display: flex; align-items: center; gap: 10px; height: 72px; padding: 0 20px; background: #ffd200; border-radius: 8px 8px 0 0; font-weight: 700; font-size: 22px; letter-spacing: -.02em; }
+	.pylon__head img { width: 34px; }
+	.row { display: flex; align-items: baseline; justify-content: space-between; height: 66px; padding: 0 22px; border-top: 1px solid #262626; }
+	.row span { color: #f2f1ec; font-weight: 600; font-size: 20px; }
+	.row b { font-family: "JetBrains Mono", monospace; font-weight: 600; font-size: 40px; color: #ffb21f; letter-spacing: .02em; line-height: 66px; }
+	.pylon__foot { padding: 12px 22px 16px; border-top: 1px solid #262626; font-size: 12px; color: #9a9890; }
+	.near { height: 264px; padding: 34px 56px 0; background: #f7f6f2; }
+	.near h2 { font-size: 20px; font-weight: 600; letter-spacing: -.01em; display: flex; align-items: baseline; gap: 18px; }
+	.near h2 small { font-size: 14px; font-weight: 400; color: #6d6c66; }
+	.cards { margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+	.card { padding: 20px 22px; background: #fff; border: 1px solid #ebe9e2; border-radius: 8px; }
+	.card__top { display: flex; justify-content: space-between; align-items: baseline; }
+	.card__name { font-weight: 600; font-size: 17px; }
+	.card__dist { font-size: 15px; color: #151515; }
+	.card__addr { margin-top: 6px; font-size: 14px; color: #6d6c66; }
+	.card__srv { margin-top: 16px; display: flex; gap: 16px; font-size: 13px; color: #45443f; }
+	.card__srv i { font-style: normal; display: inline-flex; align-items: center; gap: 6px; }
+	.card__srv i::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #29a6e0; }
+	.open { color: #2c7a4b !important; }
+	.open::before { background: #2c7a4b !important; }
+</style>
+</head>
+<body>
+	<header class="top">
+		<div class="brand"><img src="assets/eurooil-logo.webp" alt="">EuroOil</div>
+		<nav class="nav"><b>Станции</b><span>Цены</span><span>Карта клиента</span><span>Кафе и мойка</span><span>Вакансии</span></nav>
+		<div class="right"><span>8 707 249-34-56</span><span class="btn">Ближайшая станция</span></div>
+	</header>
+	<section class="hero">
+		<div class="copy">
+			<p class="kicker">Сеть АЗС, Павлодарская область</p>
+			<h1>Двенадцать станций, одни цены на всех</h1>
+			<p class="lead">Пять станций на трассах и семь в городах. Цены обновляются каждое утро в семь, по карте клиента скидка до шести процентов.</p>
+			<div class="cta"><span class="btn dark">Показать на карте</span><a>Как работает карта клиента</a></div>
+		</div>
+		<div class="photo">
+			<img src="assets/station.webp" alt="">
+			<div class="pylon">
+				<div class="pylon__head"><img src="assets/eurooil-logo.webp" alt="">EuroOil</div>
+				<div class="row"><span>АИ-92</span><b>205</b></div>
+				<div class="row"><span>АИ-95</span><b>232</b></div>
+				<div class="row"><span>АИ-98</span><b>285</b></div>
+				<div class="row"><span>ДТ</span><b>335</b></div>
+				<div class="row"><span>Газ</span><b>105</b></div>
+				<div class="pylon__foot">Тенге за литр, цены на 14 октября</div>
+			</div>
+		</div>
+	</section>
+	<section class="near">
+		<h2>Рядом с вами <small>Павлодар, по геолокации</small></h2>
+		<div class="cards">
+			<div class="card"><div class="card__top"><span class="card__name">Станция №4</span><span class="card__dist">2,4 км</span></div><p class="card__addr">ул. Камзина, 72, у выезда на Астану</p><div class="card__srv"><i class="open">Открыто, 24 часа</i><i>Кафе</i><i>Мойка</i></div></div>
+			<div class="card"><div class="card__top"><span class="card__name">Станция №7</span><span class="card__dist">5,1 км</span></div><p class="card__addr">ул. Ломова, 156</p><div class="card__srv"><i class="open">Открыто до 23:00</i><i>Подкачка шин</i></div></div>
+			<div class="card"><div class="card__top"><span class="card__name">Станция №1</span><span class="card__dist">8,9 км</span></div><p class="card__addr">трасса на Экибастуз, 9 км</p><div class="card__srv"><i class="open">Открыто, 24 часа</i><i>Кафе</i><i>Газ</i></div></div>
+		</div>
+	</section>
+</body>
+</html>

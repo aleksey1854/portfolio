@@ -44,8 +44,8 @@
 		<a class="bar__name" href="#top" data-t="hero.name">Арыстан Альханов</a>
 
 		<nav class="bar__nav" data-t-label="nav.sections" aria-label="Разделы">
-			<a href="#work" data-t="nav.work">Работы</a>
 			<a href="#about" data-t="nav.about">Обо мне</a>
+			<a href="#work" data-t="nav.work">Работы</a>
 			<a href="#contact" data-t="nav.contact">Контакты</a>
 		</nav>
 
@@ -73,6 +73,27 @@
 				<div class="hero__text">
 					<h1 class="hero__name" id="hero-title" data-t="hero.name">Арыстан Альханов</h1>
 					<p class="hero__lede" data-t="hero.lede">Веб-дизайнер и разработчик из Павлодара. Ниже десять проектов, которые я сделал. Несколько из них работают прямо на этой странице: откройте и попробуйте.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="about" id="about" aria-labelledby="about-title">
+			<div class="shell about__grid">
+				<h2 class="h2" id="about-title" data-t="about.title">Обо мне</h2>
+
+				<div class="about__text">
+					<p data-t="about.p1">Меня зовут Арыстан, я веб-дизайнер и разработчик из Павлодара. Довожу сайт от первого наброска до рабочей страницы на хостинге и оставляю инструкцию тому, кто будет вести его дальше.</p>
+					<p data-t="about.p2">По образованию я разработчик ПО с квалификацией веб-дизайнера. С сентября 2025 года год вёл маркетинг VESLA, сети доставки суши в пяти городах: реклама в Meta, Google и Яндексе, агрегаторы Яндекс Еда и Chocofood, интеграции с iiko, карточки в 2ГИС и на картах, себестоимость по всему меню.</p>
+					<p data-t="about.p3">Этот год поменял то, с чего я начинаю проект. Первые вопросы: откуда придут люди и что они должны успеть сделать на странице. На сайте отеля из этого выросли UTM-метки, счётчики, ежемесячный отчёт и форма брони, которая сразу показывает цену.</p>
+					<p data-t="about.p4">Большинство проектов идут одним путём. Разбираюсь, что продаёт заказчик и кто покупает, собираю сетку, шрифты и цвета до кода, верстаю сначала под телефон, добавляю то, что двигается, подключаю аналитику и отдаю сайт вместе с README и коротким видео для тех, кто будет его править.</p>
+
+					<h3 class="about__sub" data-t="tools.title">Инструменты</h3>
+					<dl class="tools">
+						<div><dt data-t="tools.design">Дизайн и вёрстка</dt><dd data-t="tools.design.list">HTML, CSS, SVG, адаптивная вёрстка, типографика, анимация</dd></div>
+						<div><dt data-t="tools.front">Фронтенд</dt><dd>JavaScript, TypeScript, React, Next.js, Tailwind, GSAP, Lenis, Bootstrap</dd></div>
+						<div><dt data-t="tools.back">Данные и бэкенд</dt><dd>Node.js, PostgreSQL, Prisma, SQLite, REST APIs, Python, Google Apps Script</dd></div>
+						<div><dt data-t="tools.ship">Аналитика и публикация</dt><dd>Yandex Metrica, GA4, UTM, Search Console, Yandex Webmaster, Git, Vercel, GitHub Pages</dd></div>
+					</dl>
 				</div>
 			</div>
 		</section>
@@ -173,7 +194,7 @@
 					<div class="work__inner">
 						<div class="work__shot" data-shots="assets/shots/eurooil-2.webp|assets/shots/eurooil-3.webp">
 							<span class="work__badge" data-t="badge.concept">Концепт</span>
-							<img src="assets/shots/eurooil.webp" data-t-alt="w5.alt" alt="Концепт редизайна сайта сети АЗС EuroOil" width="1280" height="800" loading="lazy">
+							<img src="assets/shots/eurooil.webp" data-t-alt="w5.alt" alt="Концепт редизайна EuroOil: ценовая стела на первом экране, ближайшие станции и мобильная версия" width="1600" height="1000" loading="lazy">
 						</div>
 						<div class="work__body">
 							<p class="work__kind" data-t="w5.kind">Сеть АЗС, Павлодарская область. Концепт редизайна</p>
@@ -189,7 +210,7 @@
 					<div class="work__inner">
 						<div class="work__shot" data-shots="assets/shots/cc1010-2.webp">
 							<span class="work__badge" data-t="badge.concept">Концепт</span>
-							<img src="assets/shots/cc1010.webp" data-t-alt="w6.alt" alt="Концепт интерфейса АРМ контроля качества контакт-центра" width="1280" height="800" loading="lazy">
+							<img src="assets/shots/cc1010.webp" data-t-alt="w6.alt" alt="Концепт рабочего места оценки звонков: расшифровка звонка и оценочный лист с весами" width="1600" height="1000" loading="lazy">
 						</div>
 						<div class="work__body">
 							<p class="work__kind" data-t="w6.kind">АРМ отдела контроля качества контакт-центра</p>
@@ -208,7 +229,7 @@
 					<div class="work__inner">
 						<div class="work__shot" data-shots="assets/shots/devhub-2.webp">
 							<span class="work__badge" data-t="badge.concept">Концепт</span>
-							<img src="assets/shots/devhub.webp" data-t-alt="w7.alt" alt="Десктопное приложение Developer Hub с модулями" width="1280" height="800" loading="lazy">
+							<img src="assets/shots/devhub.webp" data-t-alt="w7.alt" alt="Концепт Developer Hub: список модулей, форма сжатия видео и живой лог" width="1600" height="1000" loading="lazy">
 						</div>
 						<div class="work__body">
 							<p class="work__kind" data-t="w7.kind">Десктопное приложение для своей рутины</p>
@@ -292,27 +313,6 @@
 			</div>
 		</section>
 
-		<section class="about" id="about" aria-labelledby="about-title">
-			<div class="shell about__grid">
-				<h2 class="h2" id="about-title" data-t="about.title">Обо мне</h2>
-
-				<div class="about__text">
-					<p data-t="about.p1">Меня зовут Арыстан, я веб-дизайнер и разработчик из Павлодара. Довожу сайт от первого наброска до рабочей страницы на хостинге и оставляю инструкцию тому, кто будет вести его дальше.</p>
-					<p data-t="about.p2">По образованию я разработчик ПО с квалификацией веб-дизайнера. С сентября 2025 года год вёл маркетинг VESLA, сети доставки суши в пяти городах: реклама в Meta, Google и Яндексе, агрегаторы Яндекс Еда и Chocofood, интеграции с iiko, карточки в 2ГИС и на картах, себестоимость по всему меню.</p>
-					<p data-t="about.p3">Этот год поменял то, с чего я начинаю проект. Первые вопросы: откуда придут люди и что они должны успеть сделать на странице. На сайте отеля из этого выросли UTM-метки, счётчики, ежемесячный отчёт и форма брони, которая сразу показывает цену.</p>
-					<p data-t="about.p4">Большинство проектов идут одним путём. Разбираюсь, что продаёт заказчик и кто покупает, собираю сетку, шрифты и цвета до кода, верстаю сначала под телефон, добавляю то, что двигается, подключаю аналитику и отдаю сайт вместе с README и коротким видео для тех, кто будет его править.</p>
-
-					<h3 class="about__sub" data-t="tools.title">Инструменты</h3>
-					<dl class="tools">
-						<div><dt data-t="tools.design">Дизайн и вёрстка</dt><dd data-t="tools.design.list">HTML, CSS, SVG, адаптивная вёрстка, типографика, анимация</dd></div>
-						<div><dt data-t="tools.front">Фронтенд</dt><dd>JavaScript, TypeScript, React, Next.js, Tailwind, GSAP, Lenis, Bootstrap</dd></div>
-						<div><dt data-t="tools.back">Данные и бэкенд</dt><dd>Node.js, PostgreSQL, Prisma, SQLite, REST APIs, Python, Google Apps Script</dd></div>
-						<div><dt data-t="tools.ship">Аналитика и публикация</dt><dd>Yandex Metrica, GA4, UTM, Search Console, Yandex Webmaster, Git, Vercel, GitHub Pages</dd></div>
-					</dl>
-				</div>
-			</div>
-		</section>
-
 		<section class="contact" id="contact" aria-labelledby="contact-title">
 			<div class="shell contact__inner">
 				<h2 class="contact__title" id="contact-title" data-t="contact.title">Напишите мне</h2>
@@ -361,7 +361,8 @@
 	<footer class="footer">
 		<div class="shell footer__row">
 			<span>© <span id="year">2026</span> <span data-t="hero.name">Арыстан Альханов</span>, <span data-t="footer.city">Павлодар</span></span>
-			<span data-t="footer.note">Лес вверху страницы взят из моего эксперимента с параллаксом 2023 года.</span>
+			<span class="footer__day" data-t="footer.photo">Фото холмов на первом экране: Ricardo Gomez Angel, Unsplash.</span>
+			<span class="footer__night" data-t="footer.note">Лес вверху страницы взят из моего эксперимента с параллаксом 2023 года.</span>
 			<a href="#top" data-t="footer.top">Наверх</a>
 		</div>
 	</footer>

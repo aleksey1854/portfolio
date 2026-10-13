@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<style>
+	@font-face { font-family: "Raleway"; src: url(../assets/fonts/raleway-latin.woff2) format("woff2"); font-weight: 100 900; }
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	html, body { width: 1600px; height: 1000px; overflow: hidden; }
+	.stage { position: relative; width: 1600px; height: 1000px; background: var(--bg); overflow: hidden; }
+	.stage::before { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 30% 20%, rgba(255, 255, 255, var(--lift, .18)), transparent 60%); }
+	.win { position: absolute; left: 150px; top: 76px; width: 1300px; border-radius: 12px; overflow: hidden; background: var(--bar); box-shadow: 0 0 0 1px var(--edge), 0 2px 4px rgba(0, 0, 0, .06), 0 50px 100px -24px rgba(0, 0, 0, var(--shadow, .4)); }
+	.bar { position: relative; height: 36px; display: flex; align-items: center; gap: 7px; padding: 0 14px; }
+	.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--dot); }
+	.title { position: absolute; left: 0; right: 0; text-align: center; font: 500 13px/36px "Raleway", sans-serif; color: var(--titlec); }
+	.win img { display: block; width: 1300px; height: auto; }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+	<div class="win"><div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="title" id="t"></span></div><img id="d" alt=""></div>
+</div>
+<script>
+	var q = new URLSearchParams(location.search);
+	var s = document.getElementById('stage').style;
+	var dark = q.get('chrome') === 'dark';
+	s.setProperty('--bg', q.get('bg') || '#d9d2c4');
+	s.setProperty('--bar', dark ? '#1c1d1b' : '#f3f1ec');
+	s.setProperty('--dot', dark ? '#3a3b38' : '#d9d5cc');
+	s.setProperty('--titlec', dark ? '#8b8981' : '#7d796f');
+	s.setProperty('--edge', dark ? 'rgba(255, 255, 255, .06)' : 'rgba(0, 0, 0, .04)');
+	s.setProperty('--lift', q.get('lift') || '.18');
+	s.setProperty('--shadow', q.get('shadow') || '.4');
+	document.getElementById('t').textContent = q.get('title') || '';
+	document.getElementById('d').src = q.get('d');
+</script>
+</body>
+</html>

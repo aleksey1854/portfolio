@@ -18,6 +18,7 @@
 
 	var topbar = document.getElementById('topbar');
 	var hero = document.querySelector('.hero');
+	var heroText = document.querySelector('.hero__text');
 	var contact = document.getElementById('contact');
 	var section = document.getElementById('work');
 	var stage = document.getElementById('stage');
@@ -86,6 +87,7 @@
 		var y = window.pageYOffset;
 
 		if (y < heroBottom + 240) root.style.setProperty('--scrollTop', y + 'px');
+		if (heroText && y < heroBottom + 240) heroText.style.opacity = clamp(1 - y / (heroBottom * .6), 0, 1).toFixed(3);
 
 		if (topbar) topbar.classList.toggle('is-stuck', y > 40);
 
@@ -1035,9 +1037,13 @@
 			slider.className = 'work__compare';
 			slider.setAttribute('value', '62');
 
-			var before = picture.cloneNode(true);
+			var before = document.createElement('img');
 			before.setAttribute('slot', 'first');
-			before.removeAttribute('loading');
+			before.setAttribute('data-t-alt', 'w5.alt');
+			before.src = 'assets/shots/eurooil-new.webp';
+			before.alt = picture.alt;
+			before.width = 1280;
+			before.height = 800;
 
 			var after = document.createElement('img');
 			after.setAttribute('slot', 'second');

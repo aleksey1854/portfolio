@@ -63,17 +63,17 @@
 
 		'w5.name': 'EuroOil',
 		'w5.kind': 'Fuel station network, Pavlodar region. Redesign concept',
-		'w5.alt': 'Redesign concept for the EuroOil fuel network site',
+		'w5.alt': 'EuroOil redesign concept: a fuel price sign on the first screen, nearest stations and the phone version',
 		'w5.text': 'In 2025 I built seven pages for EuroOil: home, stations, services, offers and jobs, on Bootstrap, with my own language switcher over the translation widget. That layout has aged, so the picture shows a redesign concept. The first screen now opens with fuel prices, the nearest station and the loyalty card, which is what a driver comes for. If your site has aged the same way, I can redesign it too: keep the content, give it a new look.',
 
 		'w6.name': 'Quality control',
 		'w6.kind': 'Workstation for a contact centre quality team',
-		'w6.alt': 'Interface concept for the contact centre quality control workstation',
+		'w6.alt': 'Call review workstation concept: call transcript and a weighted scorecard',
 		'w6.text': 'A call scoring system for a contact centre with 175 operators in ten groups. I wrote the first version on Google Apps Script over spreadsheets. When it outgrew them, I rewrote it on Next.js and Postgres: fourteen tables, thirty-seven API handlers, scores and reports in SQL, salted passwords and protection against password guessing. The new version had to give exactly the same numbers as the old one, and 417 parity checks confirm that it does. The picture is an interface concept over the same data.',
 
 		'w7.name': 'Developer Hub',
 		'w7.kind': 'Desktop app for my own routine',
-		'w7.alt': 'Developer Hub desktop app with its modules',
+		'w7.alt': 'Developer Hub concept: module list, a video compression form and a live log',
 		'w7.text': 'A home for my Python scripts. I drop a folder into modules/ and it shows up in the sidebar. There are six so far: transcription (faster-whisper on my own machine, pyannote to tell the speakers apart, then a model reads the transcript), video compression, a document parser, a duplicate finder for music, an Excel importer and a chat client for OneAPI. The picture shows the next step on the roadmap: a form that builds itself from each module’s manifest.',
 
 		'w8.name': 'Switch on & go',
@@ -110,6 +110,7 @@
 
 		'footer.city': 'Pavlodar',
 		'footer.note': 'The forest at the top is my parallax experiment from 2023.',
+		'footer.photo': 'Photo of the hills at the top: Ricardo Gomez Angel, Unsplash.',
 		'footer.top': 'Back to top'
 	};
 
@@ -173,17 +174,17 @@
 
 		'w5.name': 'EuroOil',
 		'w5.kind': 'Жанармай құю станцияларының желісі, Павлодар облысы. Редизайн тұжырымы',
-		'w5.alt': 'EuroOil жанармай желісі сайтының редизайн тұжырымы',
+		'w5.alt': 'EuroOil редизайн тұжырымы: бірінші экранда баға тақтасы, жақын станциялар және телефон нұсқасы',
 		'w5.text': '2025 жылы EuroOil үшін жеті бет жасадым: басты бет, мекенжайлар, қызметтер, акциялар және бос жұмыс орындары. Bootstrap-та, аударма виджетінің үстінен өзімнің тіл ауыстырғышыммен. Ол беттеме ескірді, сондықтан суретте редизайн тұжырымы. Бірінші экран енді жанармай бағасынан, ең жақын станциядан және клиент картасынан басталады, жүргізуші дәл соған келеді. Сіздің сайтыңыз да ескірсе, оған да осылай редизайн жасай аламын: мазмұнын сақтап, жаңа көрініс беремін.',
 
 		'w6.name': 'Сапа бақылауы',
 		'w6.kind': 'Байланыс орталығының сапа бөліміне арналған АЖО',
-		'w6.alt': 'Байланыс орталығының сапа бақылау АЖО интерфейсінің тұжырымы',
+		'w6.alt': 'Қоңырауларды бағалау орнының тұжырымы: қоңырау мәтіні және салмақты бағалау парағы',
 		'w6.text': 'Он топтағы 175 операторы бар байланыс орталығына арналған қоңырауларды бағалау жүйесі. Алғашқы нұсқасын кестелердің үстінен Google Apps Script-те өзім жаздым. Жүйе кестелерге сыймай қалғанда, оны Next.js пен Postgres-те қайта жаздым: он төрт кесте, отыз жеті API өңдеушісі, ұпайлар мен есептер SQL-де, тұзы бар парольдер және парольді іріктеп табудан қорғаныс. Жаңа нұсқа ескісімен дәл бірдей сандар беруі керек еді, мұны 417 паритет тексерісі растайды. Суретте сол деректердің үстіндегі интерфейс тұжырымы.',
 
 		'w7.name': 'Developer Hub',
 		'w7.kind': 'Күнделікті жұмысыма арналған жұмыс үстелі қосымшасы',
-		'w7.alt': 'Модульдері бар Developer Hub жұмыс үстелі қосымшасы',
+		'w7.alt': 'Developer Hub тұжырымы: модульдер тізімі, бейнені сығу формасы және тірі журнал',
 		'w7.text': 'Менің Python скрипттерімнің үйі. modules/ ішіне қалта салсам, ол бүйір мәзірде пайда болады. Әзірге алты модуль бар: транскрипция (faster-whisper компьютердің өзінде, сөйлеушілерді pyannote ажыратады, содан кейін мәтінді модель талдайды), бейнені сығу, құжаттарды талдағыш, музыкадағы қайталанымдарды іздеу, Excel-ге импорт және OneAPI чаты. Суретте келесі қадам: әр модульдің манифесінен өзі жиналатын форма.',
 
 		'w8.name': 'Switch on & go',
@@ -220,6 +221,7 @@
 
 		'footer.city': 'Павлодар',
 		'footer.note': 'Беттің жоғарғы жағындағы орман 2023 жылғы параллакс тәжірибемнен алынған.',
+		'footer.photo': 'Бірінші экрандағы төбелер суреті: Ricardo Gomez Angel, Unsplash.',
 		'footer.top': 'Жоғарыға'
 	};
 
@@ -283,17 +285,17 @@
 
 		'w5.name': 'EuroOil',
 		'w5.kind': 'Сеть АЗС, Павлодарская область. Концепт редизайна',
-		'w5.alt': 'Концепт редизайна сайта сети АЗС EuroOil',
+		'w5.alt': 'Концепт редизайна EuroOil: ценовая стела на первом экране, ближайшие станции и мобильная версия',
 		'w5.text': 'В 2025 году я сделал для EuroOil семь страниц: главная, адреса, услуги, акции и вакансии, на Bootstrap, со своим переключателем языков поверх виджета перевода. Эта вёрстка устарела, поэтому на снимке концепт редизайна. Первый экран теперь начинается с цен на топливо, ближайшей станции и карты клиента, за этим водитель и приходит. Если ваш сайт тоже устарел, могу так же сделать ему редизайн: содержимое сохраню, вид будет новым.',
 
 		'w6.name': 'Контроль качества',
 		'w6.kind': 'АРМ отдела контроля качества контакт-центра',
-		'w6.alt': 'Концепт интерфейса АРМ контроля качества контакт-центра',
+		'w6.alt': 'Концепт рабочего места оценки звонков: расшифровка звонка и оценочный лист с весами',
 		'w6.text': 'Система оценки звонков для контакт-центра на 175 операторов в десяти группах. Первую версию я написал на Google Apps Script поверх таблиц. Когда система из них выросла, я переписал её на Next.js и Postgres: четырнадцать таблиц, тридцать семь обработчиков API, баллы и отчёты на SQL, пароли с солью и защита от подбора. Новая версия должна была давать ровно те же цифры, что и старая, и это подтверждают 417 проверок паритета. На снимке концепт интерфейса поверх тех же данных.',
 
 		'w7.name': 'Developer Hub',
 		'w7.kind': 'Десктопное приложение для своей рутины',
-		'w7.alt': 'Десктопное приложение Developer Hub с модулями',
+		'w7.alt': 'Концепт Developer Hub: список модулей, форма сжатия видео и живой лог',
 		'w7.text': 'Дом для моих Python-скриптов. Кладу папку в modules/, и она появляется в боковом меню. Модулей пока шесть: транскрибация (faster-whisper прямо на компьютере, pyannote различает говорящих, затем модель разбирает расшифровку), сжатие видео, парсер документов, поиск дублей в музыке, импорт в Excel и чат с OneAPI. На снимке следующий шаг: форма, которая сама собирается из манифеста модуля.',
 
 		'w8.name': 'Switch on & go',
@@ -330,6 +332,7 @@
 
 		'footer.city': 'Павлодар',
 		'footer.note': 'Лес вверху страницы взят из моего эксперимента с параллаксом 2023 года.',
+		'footer.photo': 'Фото холмов на первом экране: Ricardo Gomez Angel, Unsplash.',
 		'footer.top': 'Наверх'
 	};
 

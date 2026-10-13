@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=block" rel="stylesheet">
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	html, body { width: 1440px; height: 900px; overflow: hidden; background: #fbfaf7; color: #1c1d1a; font: 14px/1.45 "Golos Text", sans-serif; }
+	.app { display: grid; grid-template-columns: 212px 1fr; height: 900px; }
+	.side { background: #f2f0ea; border-right: 1px solid #e4e1d8; padding: 22px 16px; display: flex; flex-direction: column; }
+	.logo { font-weight: 700; font-size: 15px; letter-spacing: -.01em; padding: 0 8px; }
+	.logo small { display: block; font-weight: 400; font-size: 12px; color: #77756c; }
+	.menu { margin-top: 30px; display: grid; gap: 2px; }
+	.menu span { padding: 8px 10px; border-radius: 6px; color: #4a4943; display: flex; justify-content: space-between; }
+	.menu .on { background: #fff; color: #1c1d1a; font-weight: 500; box-shadow: 0 0 0 1px #e4e1d8; }
+	.menu em { font-style: normal; color: #8b897f; font-size: 13px; }
+	.me { margin-top: auto; padding: 0 8px; font-size: 13px; color: #4a4943; }
+	.me small { display: block; color: #8b897f; font-size: 12px; }
+	.main { display: grid; grid-template-rows: 56px 1fr; min-width: 0; }
+	.bar { display: flex; align-items: center; gap: 10px; padding: 0 28px; border-bottom: 1px solid #e9e6dd; color: #77756c; font-size: 13px; }
+	.bar b { color: #1c1d1a; font-weight: 500; }
+	.bar .nav { margin-left: auto; display: flex; gap: 18px; color: #4a4943; }
+	.split { display: grid; grid-template-columns: 1fr 470px; min-height: 0; }
+	.call { padding: 26px 32px; overflow: hidden; border-right: 1px solid #e9e6dd; }
+	.who { display: flex; align-items: baseline; gap: 14px; }
+	.who h1 { font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+	.who span { color: #77756c; }
+	.meta { margin-top: 4px; color: #77756c; font-size: 13px; }
+	.wave { position: relative; margin-top: 22px; height: 64px; display: flex; align-items: center; gap: 2px; }
+	.wave i { flex: 1; background: #cfccc2; border-radius: 1px; }
+	.wave i.p { background: #2c2d29; }
+	.flag { position: absolute; top: -6px; width: 2px; height: 76px; background: #b5452f; }
+	.flag::after { content: "03:12"; position: absolute; top: -18px; left: -14px; font: 500 11px "JetBrains Mono", monospace; color: #b5452f; }
+	.time { margin-top: 8px; display: flex; justify-content: space-between; font: 500 12px "JetBrains Mono", monospace; color: #8b897f; }
+	.lines { margin-top: 22px; display: grid; gap: 14px; }
+	.line { display: grid; grid-template-columns: 52px 86px 1fr; gap: 10px; }
+	.line time { font: 500 12px/21px "JetBrains Mono", monospace; color: #8b897f; }
+	.line b { font-weight: 500; font-size: 13px; line-height: 21px; color: #77756c; }
+	.line.op b { color: #2f6b4f; }
+	.line mark { background: #fbe3b8; padding: 1px 3px; border-radius: 3px; }
+	.note { margin: 2px 0 0 148px; padding: 8px 12px; border-left: 2px solid #b5452f; background: #f8ece8; color: #6e2d20; font-size: 13px; }
+	.card { padding: 26px 28px; display: flex; flex-direction: column; background: #fff; }
+	.card h2 { font-size: 16px; font-weight: 600; }
+	.card h2 small { display: block; font-weight: 400; font-size: 13px; color: #77756c; }
+	.crit { margin-top: 18px; display: grid; }
+	.c { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-top: 1px solid #efece5; }
+	.c span { font-weight: 500; }
+	.c small { grid-column: 1; color: #8b897f; font-size: 12px; }
+	.seg { grid-row: 1 / span 2; grid-column: 2; align-self: center; display: flex; border: 1px solid #dedad0; border-radius: 6px; overflow: hidden; font-size: 13px; }
+	.seg i { font-style: normal; padding: 5px 10px; color: #77756c; border-left: 1px solid #dedad0; }
+	.seg i:first-child { border-left: 0; }
+	.seg .yes { background: #2f6b4f; color: #fff; }
+	.seg .no { background: #b5452f; color: #fff; }
+	.seg .val { background: #2c2d29; color: #fff; }
+	.c.crit-fail span::after { content: "критичный"; margin-left: 8px; font-size: 11px; font-weight: 500; color: #b5452f; text-transform: lowercase; }
+	.total { margin-top: 16px; padding-top: 14px; border-top: 1px solid #e4e1d8; }
+	.total b { font-size: 26px; font-weight: 600; letter-spacing: -.02em; }
+	.total b small { font-size: 14px; font-weight: 400; color: #77756c; }
+	.total p { margin-top: 4px; font-size: 13px; color: #6e2d20; }
+	.total em { display: block; font-style: normal; font-size: 13px; color: #77756c; }
+	.comment { margin-top: 14px; padding: 10px 12px; border: 1px solid #dedad0; border-radius: 6px; color: #4a4943; font-size: 13px; min-height: 64px; }
+	.acts { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+	.btn { white-space: nowrap; padding: 9px 16px; border-radius: 6px; background: #1c1d1a; color: #fff; font-weight: 500; }
+	.ghost { padding: 9px 4px; color: #4a4943; }
+	.parity { flex-basis: 100%; font-size: 12px; color: #77756c; }
+</style>
+</head>
+<body>
+<div class="app">
+	<aside class="side">
+		<div class="logo">Контроль качества<small>Контакт-центр, 175 операторов</small></div>
+		<nav class="menu">
+			<span class="on">Звонки на оценку <em>38</em></span>
+			<span>Операторы</span>
+			<span>Группы <em>10</em></span>
+			<span>Отчёты</span>
+			<span>Калибровка <em>3</em></span>
+			<span>Оценочные листы</span>
+		</nav>
+		<div class="me">Ерлан Тулегенов<small>Супервайзер, группы 3 и 4</small></div>
+	</aside>
+	<section class="main">
+		<div class="bar">Звонки на оценку / 14 октября / <b>Айгерим Сейткали</b><span class="nav"><span>Предыдущий</span><span>Следующий, 37 осталось</span></span></div>
+		<div class="split">
+			<div class="call">
+				<div class="who"><h1>Айгерим Сейткали</h1><span>группа 4, стаж 1 год 3 месяца</span></div>
+				<p class="meta">14 октября, 10:42, входящий звонок, 6 мин 42 с, вопрос по начислению за сентябрь</p>
+				<div class="wave" id="wave"><span class="flag" style="left: 47.6%"></span></div>
+				<div class="time"><span>02:51</span><span>06:42</span></div>
+				<div class="lines">
+					<div class="line op"><time>00:02</time><b>Оператор</b><p>Добрый день, контакт-центр, меня зовут Айгерим. Чем могу помочь?</p></div>
+					<div class="line"><time>00:09</time><b>Клиент</b><p>Мне пришла сумма за сентябрь в два раза больше, чем обычно. Не понимаю, откуда.</p></div>
+					<div class="line op"><time>00:21</time><b>Оператор</b><p>Понимаю. Назовите, пожалуйста, номер лицевого счёта, я посмотрю начисления.</p></div>
+					<div class="line op"><time>03:12</time><b>Оператор</b><p><mark>Минутку.</mark></p></div>
+					<p class="note">Удержание 40 секунд без предупреждения и без возврата к клиенту.</p>
+					<div class="line op"><time>03:52</time><b>Оператор</b><p>Вижу перерасчёт за август, он попал в сентябрьскую квитанцию. В октябре сумма будет обычной.</p></div>
+					<div class="line"><time>04:10</time><b>Клиент</b><p>А почему меня никто не предупредил?</p></div>
+					<div class="line op"><time>04:18</time><b>Оператор</b><p>Извините, что так вышло. Отправлю вам расшифровку перерасчёта в WhatsApp, там видно каждую строку.</p></div>
+					<div class="line"><time>04:40</time><b>Клиент</b><p>Хорошо, жду. Спасибо.</p></div>
+					<div class="line op"><time>04:44</time><b>Оператор</b><p>Могу ещё чем-то помочь? Хорошего дня.</p></div>
+				</div>
+			</div>
+			<div class="card">
+				<h2>Оценка звонка<small>Лист «Входящая линия», версия 7</small></h2>
+				<div class="crit">
+					<div class="c"><span>Приветствие по стандарту</span><small>вес 10</small><div class="seg"><i class="yes">Да</i><i>Нет</i><i>Н/П</i></div></div>
+					<div class="c"><span>Выявление потребности</span><small>вес 20, оценка от 1 до 5</small><div class="seg"><i>1</i><i>2</i><i>3</i><i class="val">4</i><i>5</i></div></div>
+					<div class="c"><span>Решение вопроса</span><small>вес 25</small><div class="seg"><i class="yes">Да</i><i>Нет</i><i>Н/П</i></div></div>
+					<div class="c crit-fail"><span>Удержание на линии</span><small>вес 15, ошибка обнуляет звонок</small><div class="seg"><i>Да</i><i class="no">Нет</i><i>Н/П</i></div></div>
+					<div class="c"><span>Вежливость и тон</span><small>вес 15, оценка от 1 до 5</small><div class="seg"><i>1</i><i>2</i><i>3</i><i>4</i><i class="val">5</i></div></div>
+					<div class="c"><span>Завершение звонка</span><small>вес 15</small><div class="seg"><i class="yes">Да</i><i>Нет</i><i>Н/П</i></div></div>
+				</div>
+				<div class="total"><b>0 <small>из 100</small></b><em>Без критичной ошибки было бы 81</em><p>Ошибка: удержание на линии. Звонок уйдёт на калибровку группы 4.</p></div>
+				<div class="comment">Суть выяснила быстро и объяснила перерасчёт понятно. Перед паузой нужно предупредить клиента и вернуться к нему через 20 секунд.</div>
+				<div class="acts"><span class="btn">Сохранить оценку</span><span class="ghost">Отложить</span><span class="parity">Считается как в прежней таблице</span></div>
+			</div>
+		</div>
+	</section>
+</div>
+<script>
+	var w = document.getElementById('wave');
+	var seed = 7;
+	function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+	for (var i = 0; i < 150; i++) {
+		var b = document.createElement('i');
+		var t = i / 150;
+		var h = 10 + Math.abs(Math.sin(t * 23) * 26 + Math.sin(t * 61) * 14) + rnd() * 18;
+		if (t > .47 && t < .57) h = 4 + rnd() * 3;
+		b.style.height = Math.min(62, h) + 'px';
+		if (t < .425) b.className = 'p';
+		w.appendChild(b);
+	}
+</script>
+</body>
+</html>

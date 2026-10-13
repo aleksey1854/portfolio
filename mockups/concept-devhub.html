@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet">
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	html, body { width: 1440px; height: 900px; overflow: hidden; background: #161716; color: #e9e7e1; font: 14px/1.45 "Golos Text", sans-serif; }
+	.app { display: grid; grid-template-columns: 340px 1fr; height: 868px; }
+	.list { border-right: 1px solid #262725; padding: 16px 12px; }
+	.search { display: flex; align-items: center; justify-content: space-between; height: 40px; padding: 0 12px; border-radius: 8px; background: #1f201e; color: #8b8981; }
+	kbd { font: 500 11px "JetBrains Mono", monospace; color: #8b8981; border: 1px solid #353633; border-radius: 4px; padding: 1px 5px; }
+	.group { margin-top: 18px; padding: 0 10px; font-size: 12px; color: #77756d; }
+	.item { margin-top: 4px; display: grid; grid-template-columns: 1fr auto; gap: 0 10px; padding: 9px 10px; border-radius: 8px; }
+	.item b { font-weight: 500; }
+	.item small { grid-column: 1; color: #8b8981; font-size: 12px; }
+	.item kbd { grid-row: 1 / span 2; grid-column: 2; align-self: center; }
+	.item.on { background: #24251f; box-shadow: inset 2px 0 0 #e7b453; }
+	.detail { display: grid; grid-template-rows: auto 1fr 210px; min-width: 0; }
+	.head { padding: 24px 32px 0; }
+	.head h1 { font-size: 24px; font-weight: 600; letter-spacing: -.02em; }
+	.head p { margin-top: 2px; font: 400 12px "JetBrains Mono", monospace; color: #77756d; }
+	.form { padding: 22px 32px 0; display: grid; grid-template-columns: 180px 1fr; gap: 14px 24px; align-content: start; }
+	.form label { color: #a6a49b; line-height: 38px; }
+	.field { min-height: 38px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; background: #1f201e; border: 1px solid #2c2d2a; }
+	.file { justify-content: space-between; height: 58px; }
+	.file b { font-weight: 500; }
+	.file small { display: block; color: #8b8981; font-size: 12px; }
+	.file span:last-child { color: #8b8981; font-size: 13px; }
+	.segs { display: flex; gap: 0; padding: 3px; }
+	.segs i { font-style: normal; flex: 1; text-align: center; padding: 6px 0; border-radius: 6px; color: #a6a49b; }
+	.segs .on { background: #34352f; color: #f1efe8; }
+	.slider { gap: 14px; }
+	.track { position: relative; flex: 1; height: 4px; border-radius: 2px; background: #34352f; }
+	.track::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 52%; border-radius: 2px; background: #e7b453; }
+	.track::after { content: ""; position: absolute; left: 52%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #f1efe8; }
+	.mono { font-family: "JetBrains Mono", monospace; font-size: 13px; }
+	.hint { color: #77756d; font-size: 12px; }
+	.run { grid-column: 2; display: flex; gap: 14px; align-items: center; margin-top: 4px; }
+	.btn { display: inline-flex; align-items: center; gap: 10px; height: 40px; padding: 0 16px; border-radius: 8px; background: #e7b453; color: #1b1a16; font-weight: 600; }
+	.btn kbd { color: #1b1a16; border-color: rgba(27, 26, 22, .35); }
+	.ghost { color: #a6a49b; }
+	.hist { grid-column: 1 / -1; margin-top: 22px; }
+	.hist h2 { font-size: 13px; font-weight: 500; color: #8b8981; }
+	.hist div { display: grid; grid-template-columns: 150px 1fr 200px 90px; gap: 16px; padding: 9px 0; border-top: 1px solid #232421; font-size: 13px; color: #b9b7ae; }
+	.hist div:first-of-type { border-top: 0; }
+	.hist span:nth-child(3) { font-family: "JetBrains Mono", monospace; font-size: 12px; color: #8b8981; }
+	.hist span:last-child { text-align: right; color: #9cc28a; }
+	.log { border-top: 1px solid #262725; padding: 14px 32px; font: 400 12.5px/1.7 "JetBrains Mono", monospace; color: #b9b7ae; background: #121312; }
+	.log span { color: #6f6d66; margin-right: 14px; }
+	.log .ok { color: #9cc28a; }
+	.prog { margin: 10px 0 6px; height: 3px; background: #262725; border-radius: 2px; }
+	.prog i { display: block; width: 61%; height: 100%; background: #e7b453; border-radius: 2px; }
+	.status { height: 32px; display: flex; align-items: center; gap: 22px; padding: 0 16px; border-top: 1px solid #262725; font: 400 12px "JetBrains Mono", monospace; color: #77756d; }
+	.status b { font-weight: 400; color: #9cc28a; }
+</style>
+</head>
+<body>
+<div class="app">
+	<aside class="list">
+		<div class="search"><span>Найти модуль</span><kbd>Ctrl K</kbd></div>
+		<p class="group">Медиа</p>
+		<div class="item on"><b>Сжатие видео</b><small>ffmpeg, пресеты под мессенджеры</small><kbd>1</kbd></div>
+		<div class="item"><b>Транскрибация</b><small>faster-whisper, на этом компьютере</small><kbd>2</kbd></div>
+		<div class="item"><b>Кто говорит</b><small>pyannote, разбивка по голосам</small><kbd>3</kbd></div>
+		<p class="group">Файлы</p>
+		<div class="item"><b>Дубли в музыке</b><small>сравнивает по звуку</small><kbd>4</kbd></div>
+		<div class="item"><b>Парсер документов</b><small>PDF и DOCX в таблицу</small><kbd>5</kbd></div>
+		<p class="group">Данные</p>
+		<div class="item"><b>Импорт в Excel</b><small>CSV и выгрузки из 1С</small><kbd>6</kbd></div>
+		<div class="item"><b>Чат через OneAPI</b><small>несколько моделей в одном окне</small><kbd>7</kbd></div>
+	</aside>
+	<section class="detail">
+		<div class="head"><h1>Сжатие видео</h1><p>modules/video_compress/manifest.json, форма собрана из манифеста</p></div>
+		<div class="form">
+			<label>Файл</label><div class="field file"><span><b>interview_2026-03.mp4</b><small>1,8 ГБ, 1920×1080, 24 мин 12 с</small></span><span>Заменить</span></div>
+			<label>Кодек</label><div class="field segs"><i>H.264</i><i class="on">H.265</i><i>AV1</i></div>
+			<label>Качество, CRF</label><div class="field slider"><span class="track"></span><span class="mono">26</span></div>
+			<label>Звук</label><div class="field">AAC, 128 кбит/с</div>
+			<label>Сохранить в</label><div class="field mono">~/Videos/compressed</div>
+			<div class="run"><span class="btn">Запустить <kbd>Ctrl Enter</kbd></span><span class="ghost">Открыть папку</span><span class="hint">Ожидаемый размер около 310 МБ</span></div>
+			<div class="hist"><h2>Последние запуски</h2>
+				<div><span>Вчера, 18:20</span><span>lecture_week_9.mov</span><span>2,4 ГБ в 412 МБ</span><span>готово</span></div>
+				<div><span>Вчера, 11:05</span><span>demo_medeu_site.mp4</span><span>640 МБ в 96 МБ</span><span>готово</span></div>
+				<div><span>12 октября</span><span>call_sample_04.mp4</span><span>210 МБ в 38 МБ</span><span>готово</span></div>
+			</div>
+		</div>
+		<div class="log">
+			<div><span>10:41:02</span>ffmpeg 7.1 запущен, 8 потоков, libx265 crf=26</div>
+			<div><span>10:41:03</span>вход 1920×1080, 24:12, 1,8 ГБ</div>
+			<div><span>10:42:51</span>кадр 21 340 из 34 848, скорость 3,1x</div>
+			<div class="prog"><i></i></div>
+			<div><span>10:42:51</span>готово 61 %, осталось около 1 мин 48 с</div>
+		</div>
+	</section>
+</div>
+<footer class="status"><b>Python 3.12</b><span>7 модулей</span><span>modules/ подключена</span><span>Транскрибация в очереди: 2 файла</span></footer>
+</body>
+</html>
