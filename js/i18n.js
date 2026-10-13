@@ -43,22 +43,22 @@
 
 		'w1.name': 'Medeu Hotel',
 		'w1.kind': 'Hotel website, Kostanay',
-		'w1.alt': 'First screen of the Medeu hotel website',
+		'w1.alt': 'Medeu hotel website in a desktop browser and on a phone',
 		'w1.text': 'Rooms, restaurant, banquet hall and concerts for a hotel in Kostanay. The site is plain HTML, CSS and JavaScript in three languages, with light and dark themes. The booking window adds up the stay while the guest fills it in and sends the total to the manager on WhatsApp. Metrica and GA4 track every visitor source through UTM tags, and the owner gets a report by email once a month. Prices and photos live in two files that he edits himself.',
 
 		'w2.name': 'Sayahat',
 		'w2.kind': 'Catalogue of a city market, Kostanay',
-		'w2.alt': 'Catalogue page of the Sayahat market site',
+		'w2.alt': 'Sayahat market catalogue in a desktop browser and on a phone',
 		'w2.text': 'A directory of the shops at Sayahat market, with a page for every seller, dashboards for shop owners and an admin panel. People search in Kazakh and in Russian, so the search knows Kazakh word endings and synonyms across the two languages. Loose matches appear only when there are no exact ones, and fifty tests cover the engine. Built on Next.js with Postgres and Prisma, with JSON-LD markup for search engines. The logo came out of this project too.',
 
 		'w3.name': 'Tikhiy Bereg',
 		'w3.kind': 'Booking site for lakeside cabins near Rudny',
-		'w3.alt': 'First screen of the lakeside cabins booking site',
+		'w3.alt': 'Lakeside cabins booking site in a desktop browser and on a phone',
 		'w3.text': 'Guests pick their dates and see right away which cabins are free and what the stay costs, without calling anyone. Every date in the calendar shows its price. The site counts weekday and weekend rates separately, filters cabins by party size and works out the prepayment. One HTML file, two languages, a summer look and a winter look.',
 
 		'w4.name': 'Tikhiy Bereg, lite',
 		'w4.kind': 'The same resort, simpler version',
-		'w4.alt': 'First screen of the cabins site with a request form',
+		'w4.alt': 'Lite version of the cabins site: cabin cards on desktop, first screen on a phone',
 		'w4.text': 'Same design and the same texts, with a request form in place of instant booking. The calendar shows how busy the resort is, the guest leaves a request and the manager confirms it. I made both versions so the client could see what the more expensive one adds.',
 
 		'w5.name': 'EuroOil',
@@ -78,17 +78,17 @@
 
 		'w8.name': 'Switch on & go',
 		'w8.kind': 'One-page site for a hospitality consultant',
-		'w8.alt': 'Switch on and go page, switched on',
+		'w8.alt': 'Switch on and go page, switched on, in a desktop browser and on a phone',
 		'w8.text': 'The client sent voice notes with a single request: the site should be a switch. While it is off, the page sits in cold grey metal. Flip it, and the page warms up and shows the offer and the contacts. Three hundred lines in one file, with no images.',
 
 		'w9.name': 'Forest Vine',
 		'w9.kind': 'Parallax experiment, 2023',
-		'w9.alt': 'First screen of the Forest Vine parallax experiment',
+		'w9.alt': 'Forest Vine parallax experiment in a desktop browser and on a phone',
 		'w9.text': 'Three layers of forest move at different speeds. The scroll position goes into a CSS variable, and a plain CSS transition on the transform makes the movement soft. GSAP only smooths the page scroll. The forest at the top of this page comes from here.',
 
 		'w10.name': '3D Scroll',
 		'w10.kind': 'Depth experiment, 2023',
-		'w10.alt': 'Gallery frames standing along the Z axis',
+		'w10.alt': 'Gallery frames along the Z axis in a desktop browser and on a phone',
 		'w10.text': 'A gallery that moves into the screen as you scroll. Frames stand along the Z axis and fly past the viewer. It runs on CSS perspective, preserve-3d and a few lines of arithmetic, with no library.',
 
 		'about.title': 'About',
@@ -153,22 +153,22 @@
 
 		'w1.name': 'Medeu Hotel',
 		'w1.kind': 'Қонақ үй кешенінің сайты, Қостанай',
-		'w1.alt': 'Medeu қонақ үйі сайтының бірінші экраны',
+		'w1.alt': 'Medeu қонақ үйі сайты компьютерде және телефонда',
 		'w1.text': 'Қостанайдағы қонақ үйдің нөмірлері, мейрамханасы, банкет залы мен концерттері. Сайт таза HTML, CSS және JavaScript-те, үш тілде, ашық және қою тақырыппен. Брондау терезесі қонақ оны толтырып жатқанда бағаны санайды да, дайын соманы менеджерге WhatsApp арқылы жібереді. Метрика мен GA4 әр келушінің қайдан келгенін UTM белгілері бойынша көреді, иесі айына бір рет поштаға есеп алады. Бағалар мен фотолар екі файлда, оларды иесі өзі түзетеді.',
 
 		'w2.name': 'Саяхат',
 		'w2.kind': 'Қала базарының каталогы, Қостанай',
-		'w2.alt': 'Саяхат базары сайтының каталог беті',
+		'w2.alt': 'Саяхат базарының каталогы компьютерде және телефонда',
 		'w2.text': '«Саяхат» базарындағы дүкендер витринасы: әр сатушының өз беті, иелерінің кабинеті және әкімші панелі бар. Адамдар қазақша да, орысша да іздейді, сондықтан іздеу қазақ жалғауларын және екі тіл арасындағы синонимдерді біледі. Дәл сәйкестік болмағанда ғана жуық нәтижелер шығады, қозғалтқышты елу тест тексереді. Next.js, Prisma арқылы Postgres, іздеу жүйелеріне арналған JSON-LD белгілері. Логотип те осы жобадан туды.',
 
 		'w3.name': 'Тихий Берег',
 		'w3.kind': 'Брондауы бар демалыс базасының сайты, Рудный маңы',
-		'w3.alt': 'Брондауы бар демалыс базасы сайтының бірінші экраны',
+		'w3.alt': 'Брондауы бар демалыс базасының сайты компьютерде және телефонда',
 		'w3.text': 'Қонақ күндерді таңдайды да, қай үй бос екенін және демалыс қанша тұратынын бірден көреді, ешкімге қоңырау шалудың қажеті жоқ. Күнтізбедегі әр күннің өз бағасы бар. Сайт жұмыс күндері мен демалыс күндерін бөлек санайды, үйлерді қонақ санына қарай іріктейді және алдын ала төлемді есептейді. Бір HTML файл, екі тіл, жазғы және қысқы безендіру.',
 
 		'w4.name': 'Тихий Берег, лайт',
 		'w4.kind': 'Сол демалыс базасы, қарапайым нұсқа',
-		'w4.alt': 'Өтінім формасы бар демалыс базасы сайтының бірінші экраны',
+		'w4.alt': 'Демалыс базасы сайтының жеңіл нұсқасы: компьютерде үйшік карточкалары, телефонда бірінші экран',
 		'w4.text': 'Дизайн да, мәтін де сол, тек жедел брондаудың орнында өтінім формасы. Күнтізбе базаның жүктемесін көрсетеді, қонақ өтінім қалдырады, әкімші оны растайды. Екі нұсқаны да тапсырыс беруші қымбатырағы не қосатынын көрсін деп жасадым.',
 
 		'w5.name': 'EuroOil',
@@ -188,17 +188,17 @@
 
 		'w8.name': 'Switch on & go',
 		'w8.kind': 'Қонақжайлылық саласындағы кеңесшіге арналған бір беттік сайт',
-		'w8.alt': 'Қосулы күйдегі Switch on and go беті',
+		'w8.alt': 'Қосулы күйдегі Switch on and go беті компьютерде және телефонда',
 		'w8.text': 'Тапсырыс беруші бір ғана талабы бар дауыстық хабарламалар жіберді: сайт ауыстырғыш болуы керек. Ол өшірулі тұрғанда бет суық сұр металда тұрады. Бір басқанда бет жылынып, ұсыныс пен байланыстарды көрсетеді. Бір файлда үш жүз жол, бірде-бір сурет жоқ.',
 
 		'w9.name': 'Forest Vine',
 		'w9.kind': 'Параллакс тәжірибесі, 2023',
-		'w9.alt': 'Forest Vine параллакс тәжірибесінің бірінші экраны',
+		'w9.alt': 'Forest Vine параллакс тәжірибесі компьютерде және телефонда',
 		'w9.text': 'Орманның үш қабаты әртүрлі жылдамдықпен жылжиды. Айналдыру орны CSS айнымалысына түседі, ал қозғалысқа жұмсақтықты трансформдағы қарапайым CSS transition береді. GSAP тек беттің айналуын тегістейді. Осы сайттың басындағы орман осы жерден алынған.',
 
 		'w10.name': '3D Scroll',
 		'w10.kind': 'Тереңдік тәжірибесі, 2023',
-		'w10.alt': 'Z осі бойымен тұрған галерея кадрлары',
+		'w10.alt': 'Z осі бойымен тұрған галерея кадрлары компьютерде және телефонда',
 		'w10.text': 'Айналдырған сайын экранның ішіне кететін галерея. Кадрлар Z осінде тұрады да, көрерменнің жанынан ұшып өтеді. CSS perspective, preserve-3d және бірнеше жол арифметикамен жұмыс істейді, кітапханасыз.',
 
 		'about.title': 'Мен туралы',
@@ -263,22 +263,22 @@
 
 		'w1.name': 'Medeu Hotel',
 		'w1.kind': 'Сайт гостиничного комплекса, Костанай',
-		'w1.alt': 'Первый экран сайта гостиничного комплекса Medeu',
+		'w1.alt': 'Сайт гостиничного комплекса Medeu на компьютере и телефоне',
 		'w1.text': 'Номера, ресторан, банкетный зал и концерты отеля в Костанае. Сайт на чистых HTML, CSS и JavaScript, на трёх языках, со светлой и тёмной темой. Окно брони считает стоимость, пока гость его заполняет, и отправляет менеджеру в WhatsApp готовую сумму. Метрика и GA4 видят, откуда пришёл каждый посетитель, по UTM-меткам, раз в месяц владелец получает отчёт на почту. Цены и фотографии лежат в двух файлах, их он правит сам.',
 
 		'w2.name': 'Саяхат',
 		'w2.kind': 'Каталог городского рынка, Костанай',
-		'w2.alt': 'Страница каталога сайта рынка «Саяхат»',
+		'w2.alt': 'Каталог рынка «Саяхат» на компьютере и телефоне',
 		'w2.text': 'Витрина магазинов рынка «Саяхат»: у каждого продавца своя страница, у владельцев кабинеты, есть админка. Люди ищут по-казахски и по-русски, поэтому поиск знает казахские окончания и синонимы между двумя языками. Неточные совпадения появляются, только когда нет точных, движок проверяют пятьдесят тестов. Next.js, Postgres через Prisma, микроразметка JSON-LD для поисковиков. Логотип родился в этом же проекте.',
 
 		'w3.name': 'Тихий Берег',
 		'w3.kind': 'Сайт базы отдыха с бронированием, под Рудным',
-		'w3.alt': 'Первый экран сайта базы отдыха с бронированием',
+		'w3.alt': 'Сайт базы отдыха с бронированием на компьютере и телефоне',
 		'w3.text': 'Гость выбирает даты и сразу видит, какие домики свободны и сколько стоит отдых, звонить никуда не нужно. У каждого числа в календаре своя цена. Сайт считает будни и выходные отдельно, подбирает домики по числу гостей и рассчитывает предоплату. Один HTML-файл, два языка, летнее и зимнее оформление.',
 
 		'w4.name': 'Тихий Берег, лайт',
 		'w4.kind': 'Та же база отдыха, простая версия',
-		'w4.alt': 'Первый экран сайта базы отдыха с формой заявки',
+		'w4.alt': 'Лайт-версия сайта базы отдыха: карточки домиков на компьютере, первый экран на телефоне',
 		'w4.text': 'Тот же дизайн и те же тексты, только вместо мгновенной брони форма заявки. Календарь показывает загрузку базы, гость оставляет заявку, администратор её подтверждает. Обе версии я сделал, чтобы заказчик видел, что добавляет более дорогая.',
 
 		'w5.name': 'EuroOil',
@@ -298,17 +298,17 @@
 
 		'w8.name': 'Switch on & go',
 		'w8.kind': 'Одностраничник для консультанта в гостеприимстве',
-		'w8.alt': 'Страница Switch on and go во включённом состоянии',
+		'w8.alt': 'Страница Switch on and go во включённом состоянии на компьютере и телефоне',
 		'w8.text': 'Заказчица прислала голосовые с одним требованием: сайт должен быть тумблером. Пока он выключен, страница стоит в холодном сером металле. Щелчок, и она теплеет и показывает оффер и контакты. Триста строк в одном файле, ни одной картинки.',
 
 		'w9.name': 'Forest Vine',
 		'w9.kind': 'Эксперимент с параллаксом, 2023',
-		'w9.alt': 'Первый экран эксперимента с параллаксом Forest Vine',
+		'w9.alt': 'Эксперимент с параллаксом Forest Vine на компьютере и телефоне',
 		'w9.text': 'Три слоя леса едут с разной скоростью. Положение прокрутки уходит в CSS-переменную, а мягкость движению даёт обычный CSS-transition на трансформе. GSAP только сглаживает прокрутку страницы. Лес в начале этого сайта взят отсюда.',
 
 		'w10.name': '3D Scroll',
 		'w10.kind': 'Эксперимент с глубиной, 2023',
-		'w10.alt': 'Кадры галереи на оси Z',
+		'w10.alt': 'Кадры галереи на оси Z на компьютере и телефоне',
 		'w10.text': 'Галерея, которая при прокрутке уходит в экран. Кадры стоят на оси Z и пролетают мимо зрителя. Работает на CSS perspective, preserve-3d и нескольких строках арифметики, без библиотек.',
 
 		'about.title': 'Обо мне',
