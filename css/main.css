@@ -243,6 +243,7 @@ button {
 	height: 100svh;
 	min-height: 560px;
 	overflow: hidden;
+	background: #0d0f0e url(data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAACwBgCdASo4ACAAPtlWpEyoJKOisBv8AQAbCWcAxNgZT9hqBai+5x7aiSdwExP+FCiCKefYZJisx5SWRvXRYAD+9CnOL1Lx0/5qedvLpr2YWtRWFTII/LcOuvGa4z+WWecnu4/kA5I7b23YRrWxPnNb2XpF+69gAqLHMzVQXqy/mFuIFpkH0U9Wf+3NC+R2XmWiIq2VZAxcMPP50DQAAA==) center / cover no-repeat;
 }
 
 .layer {

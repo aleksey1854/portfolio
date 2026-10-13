@@ -29,10 +29,10 @@
 	var yearNode = document.getElementById('year');
 	if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 
-	var hasGsap = !!(window.gsap && window.ScrollTrigger);
+	var hasGsap = false;
 	var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-	if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+	var roomy = window.matchMedia('(min-width: 1024px) and (min-height: 680px)');
+	var mouse = window.matchMedia('(hover: hover) and (pointer: fine)');
 
 	var lenis = null;
 
@@ -230,22 +230,60 @@
 		});
 	}
 
+	function load(src) {
+		return new Promise(function (resolve, reject) {
+			var script = document.createElement('script');
+			script.src = src;
+			script.onload = resolve;
+			script.onerror = reject;
+			document.head.appendChild(script);
+		});
+	}
+
+	var gsapReady = null;
+	var lenisReady = null;
+
+	function needGsap() {
+		if (!gsapReady) {
+			gsapReady = load('libs/gsap.min.js')
+				.then(function () { return load('libs/ScrollTrigger.min.js'); })
+				.then(function () {
+					gsap.registerPlugin(ScrollTrigger);
+					hasGsap = true;
+					ScrollTrigger.addEventListener('refresh', function () {
+						measure();
+						render();
+					});
+					if (lenis) {
+						stopLenis();
+						startLenis();
+					}
+					buildStack();
+					ScrollTrigger.refresh();
+				});
+		}
+		return gsapReady;
+	}
+
+	function needLenis() {
+		if (!lenisReady) lenisReady = load('libs/lenis.min.js');
+		return lenisReady.then(startLenis);
+	}
+
+	function boot() {
+		var wait = !calm.matches && roomy.matches ? needGsap() : Promise.resolve();
+		wait.catch(function () {}).then(function () {
+			if (mouse.matches && !calm.matches) return needLenis();
+		}).catch(function () {});
+	}
+
 	buildNav();
-	startLenis();
-	buildStack();
 	measure();
 	render();
+	boot();
 
 	window.addEventListener('scroll', onScroll, { passive: true });
-
-	if (hasGsap) {
-		ScrollTrigger.addEventListener('refresh', function () {
-			measure();
-			render();
-		});
-	} else {
-		window.addEventListener('resize', function () { measure(); render(); });
-	}
+	window.addEventListener('resize', function () { measure(); render(); });
 
 	window.addEventListener('load', function () {
 		if (hasGsap) ScrollTrigger.refresh();
@@ -274,7 +312,10 @@
 
 	var resizeTimer = null;
 	window.addEventListener('resize', function () {
-		if (!hasGsap) return;
+		if (!hasGsap) {
+			if (roomy.matches && !calm.matches) needGsap();
+			return;
+		}
 		window.clearTimeout(resizeTimer);
 		resizeTimer = window.setTimeout(function () {
 			var y = window.pageYOffset;
@@ -284,16 +325,21 @@
 		}, 220);
 	});
 
-	if (hasGsap && document.fonts && document.fonts.ready) {
+	if (document.fonts && document.fonts.ready) {
 		document.fonts.ready.then(function () {
+			if (!hasGsap) return;
 			buildStack();
 			ScrollTrigger.refresh();
 		});
 	}
 
 	var onCalm = function () {
-		if (calm.matches) stopLenis();
-		else startLenis();
+		if (calm.matches) {
+			stopLenis();
+			return;
+		}
+		if (roomy.matches) needGsap();
+		if (mouse.matches) needLenis();
 	};
 	if (calm.addEventListener) calm.addEventListener('change', onCalm);
 	else if (calm.addListener) calm.addListener(onCalm);
