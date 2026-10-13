@@ -28,7 +28,6 @@
 		'note.internal': 'Internal system, closed to the public',
 		'note.personal': 'Personal tool',
 		'note.client': 'Client project',
-		'run.original': 'Run the 2025 original',
 		'tilt.ask': 'Enable tilt',
 		'badge.concept': 'Concept',
 
@@ -136,7 +135,6 @@
 		'note.internal': 'Ішкі жүйе, сыртқа жабық',
 		'note.personal': 'Жеке құрал',
 		'note.client': 'Клиент жобасы',
-		'run.original': '2025 жылғы нұсқаны іске қосу',
 		'tilt.ask': 'Еңкейтуді қосу',
 		'badge.concept': 'Тұжырым',
 
@@ -244,7 +242,6 @@
 		'note.internal': 'Внутренняя система, закрыта для внешних',
 		'note.personal': 'Личный инструмент',
 		'note.client': 'Проект клиента',
-		'run.original': 'Запустить оригинал 2025 года',
 		'tilt.ask': 'Включить наклон',
 		'badge.concept': 'Концепт',
 
