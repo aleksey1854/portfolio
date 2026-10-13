@@ -377,9 +377,10 @@
 
 		shot.setAttribute('role', 'button');
 		shot.setAttribute('tabindex', '0');
-		shot.setAttribute('aria-label', extra.length ? t('shot.open', 'Открыть экраны проекта') : t('run.here', 'Запустить'));
-
-		if (!extra.length) return;
+		if (!extra.length) {
+			shot.setAttribute('aria-label', t('run.here', 'Запустить'));
+			return;
+		}
 
 		var hint = shot.querySelector('.work__more');
 		if (!hint) {
@@ -395,9 +396,14 @@
 			? '<path d="M8 5.5v13l11-6.5-11-6.5" fill="currentColor" stroke="none"/>'
 			: '<rect x="3" y="6" width="13" height="13" rx="1.5"/><path d="M8 6V4.5A1.5 1.5 0 0 1 9.5 3h10A1.5 1.5 0 0 1 21 4.5v10a1.5 1.5 0 0 1-1.5 1.5H18"/>';
 
-		hint.querySelector('i').textContent = hasVideo
+		var label = hasVideo
 			? t('shot.video', 'Видео')
 			: (extra.length + 1) + ' ' + t('shot.screens', 'экрана');
+
+		hint.querySelector('i').textContent = label;
+
+		var badge = shot.querySelector('.work__badge');
+		shot.setAttribute('aria-label', (badge ? badge.textContent + ' ' : '') + label + '. ' + t('shot.open', 'Открыть экраны проекта'));
 	}
 
 	function markAll() {

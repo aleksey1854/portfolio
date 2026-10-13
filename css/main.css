@@ -63,6 +63,33 @@ html {
 	background-color: var(--bg);
 }
 
+html.lenis,
+html.lenis body {
+	height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+	overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+	pointer-events: none;
+}
+
+.lenis.lenis-autoToggle {
+	transition-property: overflow;
+	transition-duration: 1ms;
+	transition-behavior: allow-discrete;
+}
+
 html:not(.lenis) {
 	scroll-behavior: smooth;
 }
@@ -203,7 +230,7 @@ button {
 	z-index: 100;
 	width: 100%;
 	height: calc(var(--index) * 10);
-	background-image: url(../assets/img/ground.png);
+	background-image: url(../assets/img/ground.webp);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -670,7 +697,7 @@ button {
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	background-image: url(../assets/img/dungeon.jpg);
+	background-image: url(../assets/img/dungeon.webp);
 	background-size: cover;
 	background-position: center;
 	padding: calc(var(--index) * 6) 0;

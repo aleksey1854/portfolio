@@ -334,9 +334,13 @@
 		if (value === undefined) value = T[BASE][key];
 		if (value === undefined) return;
 
-		if (attr === 'text') node.textContent = value;
-		else if (attr === 'html') node.innerHTML = value;
-		else node.setAttribute(attr, value);
+		if (attr === 'text') {
+			if (node.textContent !== value) node.textContent = value;
+		} else if (attr === 'html') {
+			if (node.innerHTML !== value) node.innerHTML = value;
+		} else if (node.getAttribute(attr) !== value) {
+			node.setAttribute(attr, value);
+		}
 	}
 
 	function apply(lang, remember) {

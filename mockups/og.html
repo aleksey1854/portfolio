@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Превью ссылки</title>
+<style>
+	@font-face {
+		font-family: "Raleway";
+		src: url(../assets/fonts/raleway-cyrillic-ext.woff2) format("woff2");
+		font-weight: 100 900;
+		unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+	}
+
+	@font-face {
+		font-family: "Raleway";
+		src: url(../assets/fonts/raleway-cyrillic.woff2) format("woff2");
+		font-weight: 100 900;
+		unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+	}
+
+	@font-face {
+		font-family: "Raleway";
+		src: url(../assets/fonts/raleway-latin.woff2) format("woff2");
+		font-weight: 100 900;
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html,
+	body {
+		width: 1200px;
+		height: 630px;
+		overflow: hidden;
+		background: #0d0f0e;
+	}
+
+	.og {
+		position: relative;
+		width: 1200px;
+		height: 630px;
+		overflow: hidden;
+		font-family: "Raleway", sans-serif;
+		font-variant-numeric: lining-nums;
+		color: #ecebe6;
+	}
+
+	.layer {
+		position: absolute;
+		inset: 0;
+		background-size: cover;
+		background-position: center 30%;
+	}
+
+	.veil {
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(90deg, rgba(13, 15, 14, .96) 0%, rgba(13, 15, 14, .78) 40%, rgba(13, 15, 14, .3) 70%, rgba(13, 15, 14, .2) 100%),
+			linear-gradient(to bottom, rgba(13, 15, 14, .2) 0%, transparent 40%, rgba(13, 15, 14, .7) 100%);
+	}
+
+	.text {
+		position: absolute;
+		left: 64px;
+		bottom: 60px;
+		width: 560px;
+	}
+
+	.name {
+		font-weight: 200;
+		font-size: 92px;
+		line-height: .98;
+		letter-spacing: -.02em;
+	}
+
+	.role {
+		margin-top: 26px;
+		font-size: 27px;
+		line-height: 1.35;
+		color: #c9c8c0;
+	}
+
+	.url {
+		margin-top: 30px;
+		font-size: 19px;
+		font-weight: 500;
+		color: #8d8c84;
+	}
+
+	.stack {
+		position: absolute;
+		left: 622px;
+		top: 168px;
+		width: 536px;
+		height: 335px;
+	}
+
+	.card {
+		position: absolute;
+		inset: 0;
+		border-radius: 10px;
+		overflow: hidden;
+		border: 1px solid rgba(236, 235, 230, .1);
+		box-shadow: 0 40px 80px rgba(0, 0, 0, .55);
+		transform-origin: 50% 0;
+	}
+
+	.card img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top left;
+	}
+
+	.card::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: #0d0f0e;
+	}
+
+	.card--3 {
+		transform: translateY(-64px) scale(.88);
+	}
+
+	.card--3::after {
+		opacity: .62;
+	}
+
+	.card--2 {
+		transform: translateY(-32px) scale(.94);
+	}
+
+	.card--2::after {
+		opacity: .42;
+	}
+
+	.card--1::after {
+		opacity: 0;
+	}
+</style>
+</head>
+<body>
+	<div class="og">
+		<div class="layer" style="background-image: url(../assets/img/layer-base.webp);"></div>
+		<div class="layer" style="background-image: url(../assets/img/layer-middle.webp);"></div>
+		<div class="layer" style="background-image: url(../assets/img/layer-front.webp);"></div>
+		<div class="veil"></div>
+
+		<div class="stack">
+			<div class="card card--3"><img src="../assets/shots/sayahat.webp" alt=""></div>
+			<div class="card card--2"><img src="../assets/shots/medeu.webp" alt=""></div>
+			<div class="card card--1"><img src="../assets/shots/turbaza-booking.webp" alt=""></div>
+		</div>
+
+		<div class="text">
+			<h1 class="name">Арыстан Алханов</h1>
+			<p class="role">Веб-дизайнер и разработчик из&nbsp;Павлодара. Десять проектов, восемь запускаются прямо на&nbsp;сайте.</p>
+			<p class="url">aleksey1854.github.io/portfolio</p>
+		</div>
+	</div>
+</body>
+</html>
