@@ -343,6 +343,15 @@ button {
 	padding: calc(var(--index) * 3.5) 0 calc(var(--index) * 2);
 }
 
+.works:not(.is-stacked) .works__stage {
+	gap: calc(var(--index) * 2.6);
+}
+
+.works:not(.is-stacked) .work + .work {
+	padding-top: calc(var(--index) * 2.6);
+	border-top: 1px solid var(--line);
+}
+
 .work {
 	position: relative;
 	width: min(1280px, 100% - var(--gutter) * 2);
@@ -406,7 +415,7 @@ button {
 }
 
 .work__year {
-	font-size: .42em;
+	font-size: max(13px, .42em);
 	font-weight: 400;
 	letter-spacing: 0;
 	color: var(--faint);
@@ -977,6 +986,40 @@ button {
 		grid-template-columns: minmax(0, 1fr);
 		gap: 2px;
 	}
+
+	.hero__text {
+		transform: none;
+		transition: none;
+	}
+
+	.bar__name,
+	.bar__nav a,
+	.lang button {
+		padding-block: 11px;
+		margin-block: -11px;
+	}
+
+	.work__links {
+		row-gap: 0;
+	}
+
+	.work__links a,
+	.work__links .run {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+	}
+
+	.contact__list a {
+		padding-block: 7px;
+		margin-block: -7px;
+	}
+
+	.footer a {
+		display: inline-block;
+		padding-block: 11px;
+		margin-block: -11px;
+	}
 }
 
 @media (max-width: 560px) {
@@ -995,11 +1038,14 @@ button {
 	}
 
 	.lang {
-		gap: 10px;
+		gap: 0;
+		margin-right: -7px;
 	}
 
 	.lang button {
+		min-width: 44px;
 		font-size: 0;
+		padding-inline: 7px;
 	}
 
 	.lang button::after {
@@ -1009,6 +1055,76 @@ button {
 	.lang button[data-lang="en"]::after { content: "En"; }
 	.lang button[data-lang="kk"]::after { content: "Қаз"; }
 	.lang button[data-lang="ru"]::after { content: "Рус"; }
+
+	.box {
+		padding: 0;
+	}
+
+	.box__frame img,
+	.box__frame video {
+		max-height: calc(100svh - 170px);
+		border-inline: 0;
+	}
+
+	.box__meta {
+		padding-inline: 16px;
+	}
+
+	.box__btn--close {
+		top: 8px;
+		right: 8px;
+	}
+
+	.box__btn--prev,
+	.box__btn--next {
+		top: auto;
+		bottom: 20px;
+		margin-top: 0;
+	}
+
+	.box__btn--prev {
+		left: 16px;
+	}
+
+	.box__btn--next {
+		right: 16px;
+	}
+
+	.box.is-live .box__frame {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.box.is-live .box__live {
+		min-height: 60px;
+		padding: 0 68px 0 16px;
+		border-width: 0 0 1px;
+	}
+
+	.box.is-live .box__live a {
+		position: absolute;
+		right: 16px;
+		bottom: 3px;
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+		margin: 0;
+	}
+
+	.box.is-live .box__frame iframe {
+		flex: 1;
+		height: auto;
+		min-height: 0;
+		border: 0;
+	}
+
+	.box.is-live .box__meta {
+		margin: 0;
+		padding-block: 14px;
+		border-top: 1px solid var(--line);
+		background: var(--surface);
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {

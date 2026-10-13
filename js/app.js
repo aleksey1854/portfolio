@@ -551,6 +551,23 @@
 		activate(shot);
 	});
 
+	var touchX = null;
+	var touchY = 0;
+
+	box.addEventListener('touchstart', function (e) {
+		if (e.touches.length !== 1) { touchX = null; return; }
+		touchX = e.touches[0].clientX;
+		touchY = e.touches[0].clientY;
+	}, { passive: true });
+
+	box.addEventListener('touchend', function (e) {
+		if (touchX === null) return;
+		var dx = e.changedTouches[0].clientX - touchX;
+		var dy = e.changedTouches[0].clientY - touchY;
+		touchX = null;
+		if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
+	});
+
 	prev.addEventListener('click', function () { step(-1); });
 	next.addEventListener('click', function () { step(1); });
 	close.addEventListener('click', hide);
