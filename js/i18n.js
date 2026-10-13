@@ -64,7 +64,7 @@
 		'w5.name': 'EuroOil',
 		'w5.kind': 'Fuel station network, Pavlodar region. Redesign concept',
 		'w5.alt': 'Redesign concept for the EuroOil fuel network site',
-		'w5.text': 'In 2025 I built seven pages for EuroOil: home, stations, services, offers and jobs, on Bootstrap, with my own language switcher over the translation widget. That layout has aged, so the picture shows a redesign concept. The first screen now opens with fuel prices, the nearest station and the loyalty card, which is what a driver comes for.',
+		'w5.text': 'In 2025 I built seven pages for EuroOil: home, stations, services, offers and jobs, on Bootstrap, with my own language switcher over the translation widget. That layout has aged, so the picture shows a redesign concept. The first screen now opens with fuel prices, the nearest station and the loyalty card, which is what a driver comes for. If your site has aged the same way, I can redesign it too: keep the content, give it a new look.',
 
 		'w6.name': 'Quality control',
 		'w6.kind': 'Workstation for a contact centre quality team',
@@ -174,7 +174,7 @@
 		'w5.name': 'EuroOil',
 		'w5.kind': 'Жанармай құю станцияларының желісі, Павлодар облысы. Редизайн тұжырымы',
 		'w5.alt': 'EuroOil жанармай желісі сайтының редизайн тұжырымы',
-		'w5.text': '2025 жылы EuroOil үшін жеті бет жасадым: басты бет, мекенжайлар, қызметтер, акциялар және бос жұмыс орындары. Bootstrap-та, аударма виджетінің үстінен өзімнің тіл ауыстырғышыммен. Ол беттеме ескірді, сондықтан суретте редизайн тұжырымы. Бірінші экран енді жанармай бағасынан, ең жақын станциядан және клиент картасынан басталады, жүргізуші дәл соған келеді.',
+		'w5.text': '2025 жылы EuroOil үшін жеті бет жасадым: басты бет, мекенжайлар, қызметтер, акциялар және бос жұмыс орындары. Bootstrap-та, аударма виджетінің үстінен өзімнің тіл ауыстырғышыммен. Ол беттеме ескірді, сондықтан суретте редизайн тұжырымы. Бірінші экран енді жанармай бағасынан, ең жақын станциядан және клиент картасынан басталады, жүргізуші дәл соған келеді. Сіздің сайтыңыз да ескірсе, оған да осылай редизайн жасай аламын: мазмұнын сақтап, жаңа көрініс беремін.',
 
 		'w6.name': 'Сапа бақылауы',
 		'w6.kind': 'Байланыс орталығының сапа бөліміне арналған АЖО',
@@ -284,7 +284,7 @@
 		'w5.name': 'EuroOil',
 		'w5.kind': 'Сеть АЗС, Павлодарская область. Концепт редизайна',
 		'w5.alt': 'Концепт редизайна сайта сети АЗС EuroOil',
-		'w5.text': 'В 2025 году я сделал для EuroOil семь страниц: главная, адреса, услуги, акции и вакансии, на Bootstrap, со своим переключателем языков поверх виджета перевода. Эта вёрстка устарела, поэтому на снимке концепт редизайна. Первый экран теперь начинается с цен на топливо, ближайшей станции и карты клиента, за этим водитель и приходит.',
+		'w5.text': 'В 2025 году я сделал для EuroOil семь страниц: главная, адреса, услуги, акции и вакансии, на Bootstrap, со своим переключателем языков поверх виджета перевода. Эта вёрстка устарела, поэтому на снимке концепт редизайна. Первый экран теперь начинается с цен на топливо, ближайшей станции и карты клиента, за этим водитель и приходит. Если ваш сайт тоже устарел, могу так же сделать ему редизайн: содержимое сохраню, вид будет новым.',
 
 		'w6.name': 'Контроль качества',
 		'w6.kind': 'АРМ отдела контроля качества контакт-центра',

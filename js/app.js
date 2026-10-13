@@ -936,7 +936,7 @@
 	function warm() {
 		if (warmed) return;
 		warmed = true;
-		var set = current() === 'dark' ? ['day-base.svg', 'day-middle.svg', 'day-front.svg'] : ['layer-base.webp', 'layer-middle.webp', 'layer-front.webp', 'ground.webp', 'dungeon.webp'];
+		var set = current() === 'dark' ? ['day-base.webp', 'day-middle.webp', 'day-front.webp'] : ['layer-base.webp', 'layer-middle.webp', 'layer-front.webp', 'ground.webp', 'dungeon.webp'];
 		set.forEach(function (name) { new Image().src = 'assets/img/' + name; });
 	}
 
@@ -1148,4 +1148,29 @@
 		});
 		el.addEventListener('mouseleave', function () { el.style.transform = ''; });
 	});
+})();
+
+(function () {
+	'use strict';
+
+	var layers = document.querySelector('.layers');
+	if (!layers) return;
+	var root = document.documentElement;
+
+	function reveal() {
+		var night = root.getAttribute('data-theme') === 'dark';
+		var small = window.matchMedia && matchMedia('(max-width: 860px)').matches;
+		var names = night ? ['layer-middle.webp', 'layer-front.webp'] : small ? ['day-middle-m.webp', 'day-front-m.webp'] : ['day-middle.webp', 'day-front.webp'];
+		var waiting = names.map(function (name) {
+			return new Promise(function (done) {
+				var img = new Image();
+				img.onload = img.onerror = done;
+				img.src = 'assets/img/' + name;
+			});
+		});
+		Promise.all(waiting).then(function () { layers.classList.add('is-loaded'); });
+	}
+
+	if (document.readyState === 'complete') reveal();
+	else window.addEventListener('load', reveal);
 })();
