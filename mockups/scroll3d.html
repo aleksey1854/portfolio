@@ -48,12 +48,8 @@
 			box-shadow: 0 50px 140px -50px #000;
 		}
 
-		/* коридор: кадры уходят вправо и вглубь */
-
 		.f-mid { transform: perspective(1500px) translate3d(784px, 0, -760px); opacity: .74; z-index: 2; }
 		.f-near { transform: perspective(1500px) translate3d(-122px, 0, -160px); z-index: 3; }
-
-		/* атмосфера */
 
 		.fog {
 			position: absolute;
@@ -65,8 +61,6 @@
 				linear-gradient(90deg, #000 6%, rgba(0, 0, 0, .74) 22%, transparent 40%),
 				linear-gradient(to bottom, #000 0%, transparent 11%, transparent 88%, #000 100%);
 		}
-
-		/* интерфейс поверх сцены */
 
 		.hud { position: absolute; z-index: 8; }
 

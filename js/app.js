@@ -1,18 +1,3 @@
-/* =============================================================================
-   Arystan Alhanov — портфолио
-
-   • Первый экран — слоистый параллакс из собственного проекта «parallax»:
-     позиция прокрутки уходит в CSS-переменную --scrollTop, мягкость даёт
-     transition на трансформе.
-   • Плавная прокрутка страницы — Lenis в официальной связке с GSAP
-     ScrollTrigger (так её описывает документация Lenis).
-   • Раздел «Работы» — стопка карточек (stacking cards) на ScrollTrigger:
-     сцена закрепляется, каждая следующая карточка выезжает снизу,
-     предыдущая уменьшается и темнеет. Схема — каноническое демо GSAP.
-
-   Если библиотеки не загрузились, страница остаётся обычным списком.
-   ========================================================================== */
-
 (function () {
 	'use strict';
 
@@ -26,13 +11,10 @@
 		return n < 10 ? '0' + n : String(n);
 	};
 
-	// подпись работы берём из заголовка карточки: он переводится вместе с сайтом
 	var label = function (work) {
 		var name = work.querySelector('.work__title [data-t]');
 		return (name ? name.textContent : work.getAttribute('data-nav')) || '';
 	};
-
-	/* ---------------------------------------------------------------- узлы */
 
 	var topbar = document.getElementById('topbar');
 	var hero = document.querySelector('.hero');
@@ -51,12 +33,6 @@
 	var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 	if (hasGsap) gsap.registerPlugin(ScrollTrigger);
-
-	/* ---------------------------------------------------- плавная прокрутка
-
-	   Настройки повторяют рабочий портфолио-референс: длительность около
-	   секунды, колесо чуть медленнее родного, на тач-устройствах — родная
-	   прокрутка (syncTouch: false), иначе на телефоне она «плывёт». */
 
 	var lenis = null;
 
@@ -98,8 +74,6 @@
 		window.siteLenis = null;
 	}
 
-	/* ------------------------------------------- параллакс, шапка, контакты */
-
 	var heroBottom = 0;
 	var contactTop = 0;
 
@@ -111,8 +85,6 @@
 	function render() {
 		var y = window.pageYOffset;
 
-		// Пишем переменную только пока герой на экране: запись в :root
-		// пересчитывает стили всего документа, ниже это лишняя работа.
 		if (y < heroBottom + 240) root.style.setProperty('--scrollTop', y + 'px');
 
 		if (topbar) topbar.classList.toggle('is-stuck', y > 40);
@@ -134,16 +106,13 @@
 		});
 	}
 
-	/* ------------------------------------------------------ стопка карточек */
-
-	var stack = null;       // { timeline, duration } — пока режим включён
+	var stack = null;
 	var active = -1;
 
 	function setActive(index) {
 		if (index === active) return;
 		active = index;
 
-		// в стопке видна одна карточка — остальные с клавиатуры недоступны
 		cards.forEach(function (card, n) {
 			card.inert = stack ? n !== index : false;
 		});
@@ -156,7 +125,6 @@
 		}
 	}
 
-	// переход к карточке: в стопке — к её месту на таймлайне, в списке — к ней самой
 	function go(index) {
 		index = clamp(index, 0, cards.length - 1);
 
@@ -175,7 +143,6 @@
 	function buildNav() {
 		if (!stageNav || !cards.length) return;
 
-		// «/ 10» в счётчике считаем по карточкам — при добавлении работы править нечего
 		var total = counter && counter.parentNode.querySelector('small');
 		if (total) total.textContent = '/ ' + pad(cards.length);
 
@@ -194,7 +161,6 @@
 		});
 	}
 
-	// влезает ли каждая карточка в экран целиком (с учётом текущего языка)
 	function fits() {
 		return cards.every(function (card) {
 			var cs = window.getComputedStyle(card);
@@ -211,12 +177,9 @@
 		if (mm) mm.revert();
 		mm = gsap.matchMedia();
 
-		// Стопка только там, где карточка во весь экран помещается целиком.
-		// Иначе — обычный список: на телефоне, на низких окнах, при reduced motion.
 		mm.add('(min-width: 1024px) and (min-height: 680px) and (prefers-reduced-motion: no-preference)', function () {
 			section.classList.add('is-stacked');
 
-			// страховка: если самая длинная карточка не помещается — остаёмся списком
 			if (!fits()) {
 				section.classList.remove('is-stacked');
 				return;
@@ -226,7 +189,6 @@
 				gsap.set(card, { yPercent: i ? 100 : 0, zIndex: i + 1 });
 			});
 
-			// хвост в 0.35 даёт последней карточке постоять, прежде чем сцена отпустит
 			var duration = cards.length - 1 + 0.35;
 
 			var timeline = gsap.timeline({
@@ -250,8 +212,6 @@
 					.to(cards[i], { scale: 0.94, duration: 1 }, i)
 					.to(cards[i].querySelector('.work__shade'), { opacity: 0.55, duration: 1 }, i);
 
-				// карточку, полностью закрытую следующей, не рисуем вовсе:
-				// иначе под шестой каждый кадр отрисовываются все пять предыдущих
 				if (i > 0) timeline.set(cards[i - 1], { visibility: 'hidden' }, i);
 			});
 
@@ -261,7 +221,6 @@
 			active = -1;
 			setActive(0);
 
-			// matchMedia сам откатит все set/to при выходе из условия — снимаем только своё
 			return function () {
 				section.classList.remove('is-stacked');
 				stack = null;
@@ -270,8 +229,6 @@
 			};
 		});
 	}
-
-	/* ---------------------------------------------------------------- запуск */
 
 	buildNav();
 	startLenis();
@@ -282,7 +239,6 @@
 	window.addEventListener('scroll', onScroll, { passive: true });
 
 	if (hasGsap) {
-		// пин добавляет высоту странице — координаты контактов пересчитываем после него
 		ScrollTrigger.addEventListener('refresh', function () {
 			measure();
 			render();
@@ -297,7 +253,6 @@
 		render();
 	});
 
-	// смена языка: переводим подписи сцены и пересчитываем высоты в списке
 	document.addEventListener('langchange', function () {
 		if (nowLabel && cards[active]) nowLabel.textContent = label(cards[active]);
 		if (stageNav) {
@@ -317,7 +272,6 @@
 		}
 	});
 
-	// высота окна меняет, влезает ли карточка, — проверяем заново после ресайза
 	var resizeTimer = null;
 	window.addEventListener('resize', function () {
 		if (!hasGsap) return;
@@ -330,7 +284,6 @@
 		}, 220);
 	});
 
-	// размеры текста окончательные только после загрузки шрифтов
 	if (hasGsap && document.fonts && document.fonts.ready) {
 		document.fonts.ready.then(function () {
 			buildStack();
@@ -338,7 +291,6 @@
 		});
 	}
 
-	// системная настройка «уменьшать движение» может поменяться на лету
 	var onCalm = function () {
 		if (calm.matches) stopLenis();
 		else startLenis();
@@ -347,17 +299,6 @@
 	else if (calm.addListener) calm.addListener(onCalm);
 })();
 
-
-/* =============================================================================
-   Разворот: экраны, ролик или живой проект
-
-   У снимка работы бывает два атрибута:
-   • data-shots — дополнительные экраны и ролики через «|», клик по снимку
-     открывает их по очереди (ролик всегда первым);
-   • data-live — адрес проекта, кнопка «Запустить» открывает его вживую
-     в окне поверх страницы. Если экранов нет, живой проект открывает
-     и клик по снимку.
-   ========================================================================== */
 
 (function () {
 	'use strict';
@@ -397,8 +338,6 @@
 		return name ? name.textContent : (card ? card.getAttribute('data-nav') || '' : '');
 	}
 
-	/* -------------------------------------------- прокрутка на время окна */
-
 	function lockScroll(on) {
 		var lenis = window.siteLenis;
 
@@ -408,7 +347,6 @@
 			return;
 		}
 
-		// без Lenis — классическая заморозка body с возвратом на то же место
 		if (on) {
 			scrollLock = window.pageYOffset;
 			document.body.style.position = 'fixed';
@@ -425,15 +363,12 @@
 		}
 	}
 
-	// пока открыто окно, остальная страница не должна ловить фокус
 	function veil(on) {
 		['#topbar', 'main', 'footer'].forEach(function (sel) {
 			var node = document.querySelector(sel);
 			if (node) node.inert = on;
 		});
 	}
-
-	/* ------------------------------------------------- подпись на снимке */
 
 	function mark(shot) {
 		var extra = (shot.getAttribute('data-shots') || '').split('|').filter(Boolean);
@@ -456,7 +391,6 @@
 
 		var hasVideo = extra.some(isVideo);
 
-		// у ролика — треугольник, у набора экранов — стопка кадров
 		hint.querySelector('svg').innerHTML = hasVideo
 			? '<path d="M8 5.5v13l11-6.5-11-6.5" fill="currentColor" stroke="none"/>'
 			: '<rect x="3" y="6" width="13" height="13" rx="1.5"/><path d="M8 6V4.5A1.5 1.5 0 0 1 9.5 3h10A1.5 1.5 0 0 1 21 4.5v10a1.5 1.5 0 0 1-1.5 1.5H18"/>';
@@ -471,8 +405,6 @@
 		for (var i = 0; i < list.length; i++) mark(list[i]);
 	}
 
-	/* ------------------------------------------------------- показ кадра */
-
 	function show() {
 		var src = shots[at];
 		var video = isVideo(src);
@@ -485,7 +417,7 @@
 			if (vid.getAttribute('src') !== src) vid.setAttribute('src', src);
 			vid.currentTime = 0;
 			var playing = vid.play();
-			if (playing && playing.catch) playing.catch(function () { /* автозапуск может быть запрещён */ });
+			if (playing && playing.catch) playing.catch(function () {});
 		} else {
 			img.src = src;
 			img.alt = title.textContent + ', ' + (at + 1);
@@ -515,7 +447,6 @@
 
 		shots = [main.getAttribute('src')].concat(extra);
 
-		// ролик показываем первым: движение убедительнее статики
 		shots.sort(function (x, y) { return (isVideo(y) ? 1 : 0) - (isVideo(x) ? 1 : 0); });
 		at = 0;
 
@@ -560,7 +491,6 @@
 		vid.removeAttribute('src');
 		vid.load();
 
-		// живой проект выгружаем целиком: у него может играть звук и крутиться анимация
 		frame.src = 'about:blank';
 		frame.hidden = true;
 
@@ -580,8 +510,6 @@
 		at = to;
 		show();
 	}
-
-	/* --------------------------------------------------------------- события */
 
 	function activate(shot) {
 		if (shot.hasAttribute('data-shots')) openShots(shot);
